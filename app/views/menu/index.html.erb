@@ -1,14 +1,13 @@
+
 <article class="MenuPage">
-<div class="Menus">
-  <hr class="Cafeteria-header-line">
-  <h1 class="MenuPageTitle">MENUS</h1>
-</div>
+  <h1 class="MenuPageTitle">MENU</h1>
+
 <div class="MenuContent">
-  <div >
-    <img class="MenuContent-image" src="food.jpg">
-  </div>
+<%= image_tag("food.jpg",class: "MenuContent-image") %>
+
+
   <div>
-    <% Menu.menu.each do |menu| %>
+    <% @menu.each do |menu| %>
     <div class="Menu">
       <%= render partial: "menu-section" ,locals:{section_title: menu[0].menu_name , menu_items: MenuItem.menu_items(menu[0].id) }%>
       <% if menu[1] %>
@@ -16,9 +15,7 @@
       <%end %>
     </div>
     <% end %>
-    <form method="get" action="/cart_items" method="GET">
-      <button class="CartButton button1"type="submit">Go to Cart</button>
-    </form>
+    <%= button_to "Go to Cart","/cart_items",method: "get",class: "CartButton button1"%>
   </div>
 </div>
 </article>

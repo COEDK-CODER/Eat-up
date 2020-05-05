@@ -1,8 +1,14 @@
 <% amount=0 %>
-<div class="Menus">
-	<hr class="Cafeteria-header-line">
-  <h1 class="MenuPageTitle">Cart</h1>
-</div>
+<h1 class="MenuPageTitle">Cart</h1>
+
+<% if @cart_item.count !=0 %>
+<%= link_to(menu_index_path,class: 'MenuBar-button button2') do %>
+    <%= content_tag('i', nil, class: 'fa fa-cutlery') %> Add more
+    <% end %>
+
+		    <%= link_to(destroy_cart_path,class: 'MenuBar-button button2',method: :delete) do %>
+    <%= content_tag('i', nil, class: 'fa fa-trash') %> Clear Cart
+    <% end %>
 <table class="OrderCart">
 	<thead>
 		<tr>
@@ -20,7 +26,20 @@
 			<td><%= i+1	 %> </td>
 			<td> <%= cart_item.cart_item%> </td>
 			<td> <%= cart_item.cart_item_price%> </td>
-			<td> <%= cart_item.item_quantity %> </td>
+			<td>
+			<div>
+<%= link_to(cart_item_path(id: cart_item.id,from: "cart"),method: :put,class: "subract") do %>
+    <%= content_tag('i', nil, class: 'fa fa-minus-circle') %>
+    <% end %>
+
+<%=text_field_tag nil, cart_item.item_quantity, disabled: true,class: "MenuItem-quantity"%>
+
+    <%= link_to(cart_item_path(id: cart_item.id, state: true,from: "cart"),method: :put,class: "add") do %>
+    <%= content_tag('i', nil, class: 'fa fa-plus-circle') %>
+    <% end %>
+
+</div>
+			</td>
 			<% total =cart_item.item_quantity * cart_item.cart_item_price %>
 			<% amount+=total%>
 			<td> <%=total%> </td>
@@ -37,12 +56,26 @@
   <div class="OrderType">
   	<h2 class="OrderDetails-title">Select Order Type:</h2>
     	<select id="Payment-type" name="Payment-type">
+			<option value="EatUp Wallet">Delivery</option>
    		 <option value="Cash">Dine-In</option>
    		 <option value="Google pay">Pick-up</option>
-   		 <option value="EatUp Wallet">Delivery</option>
+
  		 </select>
  	 </div>
-<h2 >SUBTOTAL: <%= amount%></h2>
+<h2 >SUBTOTAL: </h2>
+<p class="MenuItem-price"> Rs. <%=amount %> /-</p>
 </section>
 <input  class="OrderButton button1" type="submit" value="Confirm Order" >
+
 <% end %>
+<% else %>
+
+<div>
+
+<%= image_tag("cart-banner.jpg",class: "Cart-banner") %>
+
+</div>
+<%= link_to(menu_index_path,class: 'Menu-button button1') do %>
+    <%= content_tag('i', nil, class: 'fa fa-cutlery') %> Explore Menu
+    <% end %>
+<% end%>

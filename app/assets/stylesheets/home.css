@@ -22,13 +22,12 @@ body{
 }
 .Cafeteria-title{
   font-size: 45px;
-
-  margin-top: 30px;
-
-  margin-left: 20px;
+margin: 15px;
+padding: 10px;
 }
 .Cafeteria-header-line{
-  color: aliceblue;
+  height: 1px;
+background: brown;
   margin: auto;
 }
 .Cafeteria-header{

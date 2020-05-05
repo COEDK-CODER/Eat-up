@@ -3,9 +3,11 @@
 
   line-height: 2;
   font-size: 30px;
-  background-color: antiquewhite;
-  padding-left: 450px;
-
+  background-color:bisque;
+  padding: 0px 610px;
+  border-style: solid;
+  border-width: 4px;
+  border-color: darkred;
 
 }
 .MenuSection{
@@ -57,17 +59,9 @@ width: 30px;
 
 }
 
-.User-credentials{
-  font-size: 25px;
-  padding: 5px;
-  justify-content: space-between;
-  margin-left: 200px;
-  margin-right: 450px;
-
-
-}
 .MenuBar-button
 {
+  font-family: sans-serif;
   background-color: brown;
   border: none;
   color: white;
@@ -81,26 +75,7 @@ width: 30px;
 .MenuBar-button:hover{
   background-color: darkred;
 }
-.Menus{
-  border-left-style: solid;
 
-border-top-width: 3px;
-
-border-top-style: solid;
-
-border-right-width: 5px;
-
-border-right-style: solid;
-
-border-bottom-width: 5px;
-
-  border-left-width: 4.8px;
-border-bottom-style: solid;
-border-left-color: brown;
-border-right-color: brown;
-border-top-color: brown;
-    border-bottom-color: brown;
-}
 .MenuBar{
   display: flex;
 background-color: linen;
@@ -142,6 +117,7 @@ border-radius: 4px;
   height: 25px;
   width: 30px;
 background-color:aquamarine;
+
 }
 .CounterButton-minus{
   border: none;

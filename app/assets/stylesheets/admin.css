@@ -21,8 +21,7 @@
 .Dash-button:hover{
     background-color: darkred;
 }
-.Admin{
-}
+
 .Admin-title{
   line-height: 2;
   font-size: 30px;
@@ -30,4 +29,7 @@
   padding-left: 705px;
   padding-right: 705px;
   color:white;
+}
+.NewMenu-section{
+  display: flex;
 }

@@ -1,51 +1,29 @@
-<div class="Admin">
+
   <h1 class="Admin-title">ADMIN</h1>
-</div>
 <div class="NewMenu">
-<div class="Dash" >
-  <form method="get" action="/users/1" method="GET">
-      <button class="Dash-button" type="submit">DASHBOARD </button>
-  </form>
-  <form method="get" action="/menu/new" method="GET">
-    <button class="Dash-button" type="submit">Manage Menus </button>
-  </form>
-  <form method="get" action="/users/1" method="GET">
-    <button class="Dash-button" type="submit">Manage Users </button>
-  </form>
-  <form method="get" action="/users/1" method="GET">
-    <button class="Dash-button" type="submit">Manage Orders</button>
-  </form>
-  <form method="get" action="/users/1" method="GET">
-    <button class="Dash-button" type="submit">My account </button>
-  </form>
-</div>
-<section >
-  <h2 class="MenuSection-title">Add Menu:</h2>
-  <%= form_with(url: "/menu", method: "post") do%>
-    <div>
-      Menu Name:
+<%= render partial: "dash-section"%>
+  <div >
+    <section class="NewMenu-section">
+    <h2 >Add Menu:</h2>
+    <%= form_with(url: "/menu", method: "post") do%>
       <input type="text", name="menu_name", placeholder="New menu name" >
-    </div>
       <input type="submit", value="Add">
     <% end %>
-  <h2 class="MenuSection-title">New Menu-Item:</h2>
-    <%= form_with(url: "/menu_items", method: "post") do%>
-    Select Menu Type :
+    </section>
+    <section class="NewMenu-section">
+      <%= form_with(url: "/menu_items", method: "post") do%>
+       Item name:
+       <input type="text", name="menu_item", placeholder="New item name" >
+      price: $
+      <input type="integer", name="price" , placeholder=" price" >
+      Menu Type :
       <select name="menu_id">
         <% Menu.all.each do |menu| %>
           <option value="<%= menu.id %>"><%= menu.menu_name %></option>
         <% end %>
       </select>
-
-      <div>
-        Item name:
-       <input type="text", name="menu_item", placeholder="New item name" >
-    </div>
-    <div>
-      Item price: $
-      <input type="integer", name="price" , placeholder=" price" >
-    </div>
-<input type="submit", value="Add" >
+      <input type="submit", value="Add" >
     <% end %>
-</section>
+    </section>
+  </div>
 </div>

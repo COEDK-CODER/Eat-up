@@ -14,22 +14,21 @@ class CartItemsController < ApplicationController
   end
 
   def update
-    cart_item = CartItem.find(params[:id])
-    if params[:state]
-      cart_item.item_quantity += 1
-      cart_item.save!
+    CartItem.update(params[:id], params[:state])
+    if params[:from] == "cart"
+      redirect_to "/cart_items"
     else
-      cart_item.item_quantity -= 1
-      cart_item.save!
-      if cart_item.item_quantity == 0
-        CartItem.find(params[:id]).destroy
-      end
+      redirect_to "/menu"
     end
-    redirect_to "/menu"
   end
 
   def destroy
     CartItem.find(params[:id]).destroy
+    redirect_to cart_items_path
+  end
+
+  def clear
+    CartItem.where(user_id: current_user.id).destroy_all
     redirect_to cart_items_path
   end
 end

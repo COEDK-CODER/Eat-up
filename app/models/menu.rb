@@ -1,7 +1,7 @@
 class Menu < ActiveRecord::Base
   has_many :menu_items
 
-  def self.menu
+  def self.active_menu
     menus = Array.new
     Menu.all.each do |menu|
       menus.push(menu) if Menu.exists? id: menu.id

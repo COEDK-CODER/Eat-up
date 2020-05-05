@@ -1,6 +1,7 @@
 class MenuController < ApplicationController
   def index
     @cart_item = CartItem.where(user_id: current_user.id)
+    @menu = Menu.active_menu
   end
 
   def create

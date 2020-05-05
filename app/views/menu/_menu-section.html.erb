@@ -1,42 +1,30 @@
 <section class="MenuSection">
   <h1 class="MenuSection-title"> <%= section_title %> </h1>
-  <%user= @current_user.id %>
     <ul class="MenuItem">
       <% menu_items.each do |menu_item| %>
         <li class="MenuItem-list">
            <label class="MenuItem-container">
            <%= menu_item.menu_item %>
               <p class="MenuItem-price"> Rs. <%=menu_item.price %></p>
-              <% @cart_item.each do |i|%>
-                 <% if i.menu_item_id == menu_item.id and i.item_quantity != 0%>
-                   <% @status= true %>
-                   <% h=i%>
-                  <% else %>
-                    <% k=false %>
-                  <% end %>
-              <% end %>
               <% qty=nil%>
-              <%if  @cart_item.find_by(menu_item_id: menu_item.id)%>
-                <% id=@cart_item.find_by(menu_item_id: menu_item.id).id%>
-                <% qty=@cart_item.find_by(menu_item_id: menu_item.id).item_quantity%>
-              <%end%>
+              <% qty=@cart_item.quantity(menu_item.id)%>
+              <% id=@cart_item.cart_id(menu_item.id)%>
                <%  if qty %>
-                <%=form_with(url: "/cart_items/#{id}", method: "put")do%>
-                  <input type="submit" class="CounterButton-minus"  value="-" >
-                <% end %>
-               <input class="MenuItem-quantity" type="integer" value="<%= qty %>" name="quantity" disabled >
-             <%=form_with(url: "/cart_items/#{id}", method: "put")do%>
-                 <input type="hidden" name="state" value= "true"/>
-                  <input type="submit" class="CounterButton-plus" value="+" >
-              <% end %>
+
+<%= button_to "-",cart_item_path(id: id ),method: "put",class: "CounterButton-minus" %>
+
+<%=text_field_tag nil, qty, disabled: true,class: "MenuItem-quantity"%>
+<%= button_to "+",cart_item_path(id: id,state: true
+                                              ),method: "put",class: "CounterButton-plus" %>
+
              <% else%>
-             <form  action= "/cart_items" method="POST">
-              <input type="hidden" name="menu_item_id" value= <%= menu_item.id %> />
-              <input type="hidden" name="menu_item" value= "<%= menu_item.menu_item %>" />
-              <input type="hidden" name="price" value= <%= menu_item.price %> />
-              <input class="AddButton" type="submit" value="Add" >
-            </form>
+
+            <%= button_to "Add",cart_items_path(menu_item_id: menu_item.id ,
+                                              menu_item: menu_item.menu_item,
+                                              price: menu_item.price
+                                              ),method: "post",class: "AddButton" %>
              <% end %>
+
           </label>
       </li>
    <% end %>

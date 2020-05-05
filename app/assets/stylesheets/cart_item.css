@@ -20,3 +20,31 @@
   background-color: #4CAF50;
   color: white;
 }
+.add{
+color: green;
+}
+.subract{
+color: gray;
+}
+.Cart-banner{
+  width: 440px;
+  margin: 5px 480px;
+  padding: 4px;
+}
+.Menu-button
+{
+  margin-left: 620px;
+  font-family: sans-serif;
+  background-color: green;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+.button2{
+  margin-left: 420px;
+}

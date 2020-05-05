@@ -1,31 +1,43 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Cafeteria</title>
+    <title>Eat-Up Cafeteria</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
 
   <body>
-  <div class="Cafeteria-header"  >
-      <img class="Cafeteria-logo" src="logo.png">
+  <div class="Cafeteria-header">
+      <%= image_tag("logo.png",class: "Cafeteria-logo") %>
       <h1 class="Cafeteria-title ">Welcome to EAT'UP Cafeteria</h1>
-      <hr class="Cafeteria-header-line">
   </div>
+  <hr class="Cafeteria-header-line">
   <% if flash[:error] %>
     <p class="Flash-error"> <%= flash[:error]%></p>
   <% end %>
   <div class="Cafeteria" >
   <%if @current_user%>
     <div class="MenuBar">
-    <%= link_to "Menus","/menu",method: "get",class: "MenuBar-button"%>
-    <%= link_to "My account","/users/#{@current_user.id}",method: "get",class: "MenuBar-button"%>
+    <%= link_to(menu_index_path,class: 'MenuBar-button') do %>
+    <%= content_tag('i', nil, class: 'fa fa-home') %> Home
+    <% end %>
+    <%= link_to(user_path(id: @current_user.id),class: 'MenuBar-button') do %>
+    <%= content_tag('i', nil, class: 'fa fa-user') %> My account
+    <% end %>
+
     <p class="User-credentials"> Hello <%= @current_user.first_name%>!</p>
-    <%= link_to "View Cart","/cart_items",method: "get",class: "MenuBar-button"%>
-    <%= link_to "My Orders","/order",method: "get",class: "MenuBar-button"%>
-    <%= link_to "Sign-out",destroy_session_path,method: "delete",class: "MenuBar-button"%>
+     <%= link_to(cart_items_path,class: 'MenuBar-button') do %>
+    <%= content_tag('i', nil, class: 'fa fa-shopping-bag') %> View Cart
+    <% end %>
+       <%= link_to(order_index_path,class: 'MenuBar-button') do %>
+    <%= content_tag('i', nil, class: 'fa fa-paper-plane-o') %> My Orders
+    <% end %>
+    <%= link_to(destroy_session_path,class: 'MenuBar-button',method: :delete) do %>
+    <%= content_tag('i', nil, class: 'fa fa-sign-out') %> Sign-Out
+    <% end %>
     </div>
   <%end%>
       <%= yield %>
