@@ -15,33 +15,16 @@
 	</tr>
 	</thead>
 	<tbody>
-	<% Order.all.order(id: :desc).each_with_index do |order,i|%>
-	<tr>
-
-		<td><%= i+1%></td>
-		<td> <%= order.order_date%> </td>
-		<td> ORD-<%= order.id%></td>
-		<td><%= order.amount%></td>
-    <td>
-
-		<% if order.order_status.eql?("Not Delivered")%>
-       <%= link_to(order_path(id: order.id,state: true),class: 'OrderStatus UnDeliver_button',method: :put) do %>
-    <%= content_tag('i', nil, class: 'fa fa-check') %>Mark as <%= order.order_status%>
-    <% end %>
-
-    <% else %>
-    	<%= link_to(order_path(id: order.id),class: 'OrderStatus ',method: :put) do %>
-    	<%= content_tag('i', nil, class: 'fa fa-times') %> Mark as <%= order.order_status%>
-    	<% end %>
-    <% end %>
-		 </td>
-		<td><%= link_to(order_path(order.id),class: 'Menu-button TrashIcon') do %>
-    <%= content_tag('i', nil, class: 'fa fa-external-link') %> Expand
-    <% end %>
-    </td>
-
-	</tr>
-	<%end%>
-	</tbody>
+	<% if @orders %>
+		 <%= render partial: "row-section" , locals: { orders: @orders.not_delivered ,status: "Delivered",style: "OrderStatus UnDeliver_button",state: true}%>
+		 <tr>
+		 <th>
+		 <p>Completed Orders</p></tr>
+		 </th>
+		 <%= render partial: "row-section" , locals: { orders: @orders.delivered ,status: "Not Delivered",style: "OrderStatus",state: nil}%>
+		 <% end%>
+		 	</tbody>
 </table>
+
+
 </div>

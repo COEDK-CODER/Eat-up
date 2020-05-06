@@ -1,4 +1,5 @@
-	<% Order.all.order(id: :desc).each_with_index do |order,i|%>
+
+	<% orders.each_with_index do |order,i|%>
 	<tr>
 
 		<td><%= i+1%></td>
@@ -7,16 +8,12 @@
 		<td><%= order.amount%></td>
     <td>
 
-		<% if order.order_status.eql?("Not Delivered")%>
-       <%= link_to(order_path(id: order.id,state: true),class: 'OrderStatus UnDeliver_button',method: :put) do %>
-    <%= content_tag('i', nil, class: 'fa fa-check') %>Mark as <%= order.order_status%>
+
+       <%= link_to(order_path(id: order.id,state: state),class: style,method: :put) do %>
+    <%= content_tag('i', nil, class: 'fa fa-check') %>Mark as <%= status%>
     <% end %>
 
-    <% else %>
-    	<%= link_to(order_path(id: order.id),class: 'OrderStatus ',method: :put) do %>
-    	<%= content_tag('i', nil, class: 'fa fa-times') %> Mark as <%= order.order_status%>
-    	<% end %>
-    <% end %>
+
 		 </td>
 		<td><%= link_to(order_path(order.id),class: 'Menu-button TrashIcon') do %>
     <%= content_tag('i', nil, class: 'fa fa-external-link') %> Expand
@@ -25,4 +22,3 @@
 
 	</tr>
 	<%end%>
-	</tbody>

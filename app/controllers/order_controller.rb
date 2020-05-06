@@ -20,7 +20,7 @@ class OrderController < ApplicationController
   def update
     order = Order.find(params[:id])
     if params[:state]
-      order.order_status = "delivered"
+      order.order_status = "Delivered"
     else
       order.order_status = "Not Delivered"
     end
@@ -31,6 +31,7 @@ class OrderController < ApplicationController
 
   def display
     if current_user.role.eql?("owner")
+      @orders = Order.all
       render "display"
     else
       redirect_to "/menu"

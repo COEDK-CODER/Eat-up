@@ -24,3 +24,6 @@
 
     </ul>
   </section>
+  <% if @user.role.eql?("owner")%>
+<%= button_to "Admin","/admin",method: "get",class: "CartButton cart_view"%>
+<% end%>
