@@ -25,5 +25,12 @@
       <input type="submit", value="Add" >
     <% end %>
     </section>
+    <section>
+    <select name="menu_id">
+        <% Menu.all.each do |menu| %>
+          <option  value="<%= menu.id %>"><%= menu.menu_name %></option>
+        <% end %>
+      </select>
+    </section>
   </div>
 </div>

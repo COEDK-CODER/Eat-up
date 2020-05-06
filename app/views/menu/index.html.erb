@@ -9,13 +9,15 @@
   <div>
     <% @menu.each do |menu| %>
     <div class="Menu">
+    <% if menu[0]%>
       <%= render partial: "menu-section" ,locals:{section_title: menu[0].menu_name , menu_items: MenuItem.menu_items(menu[0].id) }%>
+      <% end %>
       <% if menu[1] %>
         <%= render partial: "menu-section" ,locals:{  section_title: menu[1].menu_name , menu_items: MenuItem.menu_items(menu[1].id) }%>
       <%end %>
     </div>
     <% end %>
-    <%= button_to "Go to Cart","/cart_items",method: "get",class: "CartButton button1"%>
+    <%= button_to "Go to Cart","/cart_items",method: "get",class: "CartButton cart_view"%>
   </div>
 </div>
 </article>

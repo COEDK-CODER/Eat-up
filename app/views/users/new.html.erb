@@ -18,6 +18,8 @@
         <p class="Form-section-label">Password</p>
         <%= form.password_field :password , class: "Form-section-input",placeholder: "Password"%>
       </div>
+
+      <%= hidden_field_tag "role", "customer" %>
       <div class="Form-section">
         <%= form.submit "Sign-up!" , class: "Form-section-submit "%>
       </div>

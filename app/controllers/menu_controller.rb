@@ -8,4 +8,8 @@ class MenuController < ApplicationController
     new_menu = Menu.create!(menu_name: params[:menu_name])
     redirect_to "/menu/new"
   end
+
+  def new
+    @id = params[:id]
+  end
 end

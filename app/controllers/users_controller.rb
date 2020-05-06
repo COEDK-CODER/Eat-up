@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   def create
     new_user = User.create!(first_name: params[:first_name],
                             last_name: params[:last_name],
+                            role: params[:role],
                             email: params[:email],
                             password: params[:password])
     if new_user.id
@@ -20,6 +21,10 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
-    render "show"
+    if @user
+      render "show"
+    else
+      redirect_to "/"
+    end
   end
 end

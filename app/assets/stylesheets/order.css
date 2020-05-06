@@ -2,10 +2,7 @@
 
   padding:5px;
   width: 60%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 30px;
-  margin-bottom: 30px;
+margin:10px auto;
 }
 .OrderCart th {
   border:1px solid #C0C0C0;
@@ -58,4 +55,25 @@ font-size: 20px;
   margin-left: 320px;
   width: 800px;
   height: 80px;
+}
+.Collapse{
+  margin-left: 1100px;
+  padding: 10px;
+  background-color: darkred;
+}
+.Collapse:hover{
+  background-color: rgb(170, 23, 23);
+}
+.OrderStatus{
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 7px 16px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.UnDeliver_button{
+  background-color: #f44336;
 }

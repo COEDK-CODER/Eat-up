@@ -1,22 +1,20 @@
 .CartButton {
-  background-color: #4CAF50; /* Green */
+  background-color: #4CAF50;
   border: none;
   color: white;
   padding: 16px 32px;
-
   font-size: 16px;
   margin: 4px 2px;
   transition-duration: 0.4s;
   cursor: pointer;
-  margin-left: 750px;
 }
-
-.button1 {
+.cart_view {
   background-color: white;
   color: black;
   border: 2px solid #4CAF50;
+  margin-left: 750px;
 }
-.button1:hover {
+.cart_view:hover {
   background-color: #4CAF50;
   color: white;
 }
@@ -35,7 +33,7 @@ color: gray;
 {
   margin-left: 620px;
   font-family: sans-serif;
-  background-color: green;
+  background-color: forestgreen;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -45,6 +43,28 @@ color: gray;
   font-size: 16px;
   cursor: pointer;
 }
-.button2{
-  margin-left: 420px;
+.Menu-button:hover{
+  background-color: rgb(16, 168, 16);
+}
+.Add_more{
+  padding: 10px;
+}
+.Clear_cart{
+  padding: 10px;
+  background-color: darkred;
+  margin-left: 0px;
+}
+.Clear_cart:hover{
+  padding: 10px;
+  background-color: rgb(170, 23, 23);
+  margin-left: 0px;
+}
+.TrashIcon{
+padding: 2px;
+background-color: transparent;
+color: darkblue;
+margin-left: 0px;
+}
+.TrashIcon:hover{
+  background-color: rgb(177, 210, 243);
 }

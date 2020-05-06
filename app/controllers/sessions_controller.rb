@@ -16,7 +16,16 @@ class SessionsController < ApplicationController
   end
 
   def show
-    render "show"
+    @user = current_user
+    if @user
+      if @user.role.eql?("owner")
+        render "show"
+      else
+        redirect_to "/menu"
+      end
+    else
+      redirect_to "/"
+    end
   end
 
   def destroy

@@ -1,21 +1,22 @@
-<div class="Admin">
+
   <h1 class="Admin-title">ADMIN</h1>
-</div>
+
 
   <div class="Dash" >
-  <form method="get" action="/users/1" method="GET">
-    <button class="Dash-button" type="submit">DASHBOARD </button>
-</form>
-<form method="get" action="/menu/new" method="GET">
-  <button class="Dash-button" type="submit">Manage Menus </button>
-</form>
-<form method="get" action="/users/1" method="GET">
-  <button class="Dash-button" type="submit">Manage Users </button>
-</form>
-<form method="get" action="/users/1" method="GET">
-  <button class="Dash-button" type="submit">Manage Orders</button>
-</form>
-<form method="get" action="/users/1" method="GET">
-  <button class="Dash-button" type="submit">My account </button>
-</form>
-</div>
+    <form  method="GET">
+      <button class="Dash-button" type="submit">DASHBOARD </button>
+    </form>
+     <form method="GET">
+      <button class="Dash-button" type="submit">My account </button>
+    </form>
+   <%= link_to(new_menu_path,class: 'Dash-button') do %>
+        Manage Menu
+    <%= content_tag('i', nil, class: 'fa fa-cutlery') %>
+    <% end %>
+    <%= link_to(new_menu_path,class: 'Dash-button') do %>
+    <%= content_tag('i', nil, class: 'fa fa-users') %> Manage Staff
+    <% end %>
+        <%= link_to(all_orders_path,class: 'Dash-button') do %>
+    <%= content_tag('i', nil, class: 'fa fa-paper-plane') %> Manage Orders
+    <% end %>
+  </div>
