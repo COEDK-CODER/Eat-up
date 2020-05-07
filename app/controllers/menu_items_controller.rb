@@ -14,9 +14,14 @@ class MenuItemsController < ApplicationController
     @menu_item = MenuItem.find(params[:id])
   end
 
+  def edit
+    @menu_item = MenuItem.find(params[:id])
+  end
+
   def update
     menu_item = MenuItem.find(params[:id])
     menu_item.menu_item = params[:menu_item]
+    menu_item.menu_id = params[:menu_id]
     menu_item.price = params[:price]
     menu_item.save!
     redirect_to "/menu"

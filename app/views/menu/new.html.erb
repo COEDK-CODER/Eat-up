@@ -1,41 +1,43 @@
-
-  <h1 class="Admin-title">ADMIN</h1>
+<h1 class="Admin-title">ADMIN</h1>
 <div class="Dash-items">
-<%= render partial: "dash-section"%>
+  <%= render partial: "dash-section"%>
   <div class="ManageMenu">
     <section class="ManageMenu-section">
-    <h2 >Add Menu: </h2>
-    <%= form_with(url: "/menu", method: "post") do%>
-      <input type="text", name="menu_name", placeholder="New menu name" >
-      <input type="submit", value="Add">
-    <% end %>
-    </section>
-    <section class="ManageMenu-section">
-      <%= form_with(url: "/menu_items", method: "post") do%>
-       Item name:
-       <input type="text", name="menu_item", placeholder="New item name" >
-      price: $
-      <input type="integer", name="price" , placeholder=" price" >
-      Menu Type :
-      <select name="menu_id">
-        <% Menu.all.each do |menu| %>
-          <option value="<%= menu.id %>"><%= menu.menu_name %></option>
+
+        <ul>
+        <%= form_with(url: "/menu", method: "Post") do %>
+          <li class="Details-item">
+            <label class="Details-label">Menu Name :</label>
+            <input name="menu_name", placeholder="New menu name">
+            <input  type="button" Onclick="this.form.submit()" value="Add" >
+          </li>
+
         <% end %>
-      </select>
-      <input type="submit", value="Add" >
-    <% end %>
+      </ul>
     </section>
-    <section class="ManageMenu-section">
-      <%= form_with(url: "/menu/new", method: "get") do %>
-        Select Menu Type :
-        <select name="menu_id">
-         <option  value= "false">--select-menu--</option>
-          <% Menu.all.each do |menu| %>
-            <option  value="<%= menu.id %>"><%= menu.menu_name %></option>
-          <% end %>
-        </select>
-     <input type="button", value="Edit Menu", Onclick="this.form.submit()" >
-     <% end %>
+      <section class="ManageMenu-section">
+
+       <ul>
+        <%= form_with(url: "/menu_items", method: "Post") do %>
+          <li class="Details-item">
+            <label class="Details-label">Item Name :</label>
+            <input name="menu_item" , placeholder="New menu item name">
+          </li>
+          <li class="Details-item">
+            <label class="Details-label">Price :  </label>
+            <input name="price" , placeholder="Price">
+          </li>
+         <li class="Details-item">
+           <label class="Details-label">Menu Type :</label>
+            <select name="menu_id">
+             <% Menu.all.each do |menu| %>
+              <option value="<%= menu.id %>"><%= menu.menu_name %></option>
+             <% end %>
+            </select>
+            <input  type="button" Onclick="this.form.submit()" value="Add" >
+         </li>
+ <% end %>
+    </ul>
     </section>
-  </div>
+</div>
 </div>

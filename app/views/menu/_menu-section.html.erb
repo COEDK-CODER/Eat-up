@@ -25,7 +25,7 @@
                                               class: "AddButton",
                                               data: {disable_with: "Adding to cart"} %>
               <% if @current_user.role.eql?("owner")%>
-                <%= link_to(menu_item_path(id: menu_item.id),class: 'AddButton') do %>
+                <%= link_to(edit_menu_item_path(id: menu_item.id),class: 'AddButton') do %>
                      <%= content_tag('i', nil, class: 'fa fa-pencil') %>
                 <% end %>
                 <%= link_to(menu_item_path(id: menu_item.id),class: 'AddButton',method: :delete) do %>

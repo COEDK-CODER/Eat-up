@@ -16,8 +16,15 @@
       </li>
 
       <li class="Details-item">
-        <label class="Details-label">Select Menu :</label>
-        <input name="price" value="<%= @menu_item.price%>">
+      <label class="Details-label">Menu Type :</label>
+        <select name="menu_id">
+          <option value="<%= @menu_item.menu_id %>"><%= Menu.find(@menu_item.menu_id).menu_name%></option>
+          <% Menu.all.each do |menu| %>
+            <% if menu.id!=@menu_item.menu_id %>
+            <option value="<%= menu.id %>"><%= menu.menu_name %></option>
+            <% end %>
+          <% end %>
+        </select>
       </li>
       <li class="Details-item">
         <label class="Details-label">Price :</label>
