@@ -10,19 +10,28 @@
               <% qty=@cart_item.quantity(menu_item.id)%>
               <% id=@cart_item.cart_id(menu_item.id)%>
                <%  if qty %>
-
-<%= button_to "-",cart_item_path(id: id ),method: "put",class: "CounterButton-minus" %>
-
-<%=text_field_tag nil, qty, disabled: true,class: "MenuItem-quantity"%>
-<%= button_to "+",cart_item_path(id: id,state: true
-                                              ),method: "put",class: "CounterButton-plus" %>
+              <%= button_to "-",cart_item_path(id: id ),method: "put",class: "CounterButton-minus",data: {disable_with: "-"} %>
+                <%=text_field_tag nil, qty, disabled: true,class: "MenuItem-quantity"%>
+                <%= button_to "+",cart_item_path(id: id,state: true),
+                                              method: "put",
+                                              class: "CounterButton-plus",
+                                              data: {disable_with: "+"} %>
 
              <% else%>
 
-            <%= button_to "Add",cart_items_path(menu_item_id: menu_item.id ,
-                                              menu_item: menu_item.menu_item,
-                                              price: menu_item.price
-                                              ),method: "post",class: "AddButton",data: {disable_with: "Adding to cart"} %>
+            <%= button_to "Add",cart_items_path(menu_item_id: menu_item.id , menu_item: menu_item.menu_item,
+                                              price: menu_item.price),
+                                              method: "post",
+                                              class: "AddButton",
+                                              data: {disable_with: "Adding to cart"} %>
+              <% if @current_user.role.eql?("owner")%>
+                <%= link_to(menu_item_path(id: menu_item.id),class: 'AddButton') do %>
+                     <%= content_tag('i', nil, class: 'fa fa-pencil') %>
+                <% end %>
+                <%= link_to(menu_item_path(id: menu_item.id),class: 'AddButton',method: :delete) do %>
+                     <%= content_tag('i', nil, class: 'fa fa-trash') %>
+                <% end %>
+               <% end%>
 
              <% end %>
 

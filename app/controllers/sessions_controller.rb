@@ -11,7 +11,8 @@ class SessionsController < ApplicationController
       session[:current_user_id] = user.id
       redirect_to "/menu"
     else
-      render plain: "#{params[:password]}"
+      flash[:error] = "Your login attempt was invalid"
+      redirect_to "/signin"
     end
   end
 

@@ -10,9 +10,20 @@ class MenuItemsController < ApplicationController
     redirect_to "/menu/new"
   end
 
-  # def create1
-  #  id = params[:menu_no]
-  # MenuItem.no = id
-  #redirect_to "/menu_items/new"
-  #end ---work on dynamic combo box
+  def show
+    @menu_item = MenuItem.find(params[:id])
+  end
+
+  def update
+    menu_item = MenuItem.find(params[:id])
+    menu_item.menu_item = params[:menu_item]
+    menu_item.price = params[:price]
+    menu_item.save!
+    redirect_to "/menu"
+  end
+
+  def destroy
+    MenuItem.find(params[:id]).destroy
+    redirect_to "/"
+  end
 end

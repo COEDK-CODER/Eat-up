@@ -18,7 +18,7 @@
   <% if flash[:error] %>
     <p class="Flash-error"> <%= flash[:error]%></p>
   <% end %>
-  <div class="Cafeteria" >
+  <div class="Cafeteria"  >
   <%if @current_user%>
     <div class="MenuBar">
     <%= link_to(menu_index_path,class: 'MenuBar-button') do %>
@@ -42,7 +42,9 @@
 
   <%end%>
 
+
       <%= yield %>
+
   </div>
   </body>
 </html>

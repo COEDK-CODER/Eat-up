@@ -10,6 +10,9 @@ class MenuController < ApplicationController
   end
 
   def new
-    @id = params[:id]
+  end
+
+  def show
+    render plain: "k"
   end
 end

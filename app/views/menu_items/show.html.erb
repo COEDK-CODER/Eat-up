@@ -1,21 +1,29 @@
-<form  action="/menu_items/new" method="GET">
 
-<form>
-  Select your favorite fruit:
-  <select id="mySelect" name="menu_no" >
-<% Menu.all.each do |menu| %>
-    <option type= "button" name="menu_no" onclick= "this.form.submit()" value= "<%= menu.id %>" > <%= menu.menu_name%> </option>
 
-    <% end%>
-  </select>
-</form>
+  <h1 class="MenuPageTitle">Edit Menu</h1>
 
-</form>
+  <section class="Account">
+    <ul>
+    <%= form_with(url: "/menu_items/#{@menu_item.id}", method: "put") do %>
+    <li class="Details-item">
+        <label class="Details-label">MenuItem Id :</label>
+        <input name="User_name" value="<%=@menu_item.id%>" disabled>
+      </li>
 
-  Select your favorite fruit:
-  <select id="mySelect" name="menu_no" >
-<% MenuItem.menu_items(MenuItem.no).each do |menu| %>
-    <option type= "button" name="menu_no" onclick= "this.form.submit()" value= "<%= menu.id %>" > <%= menu.menu_item%> </option>
+      <li class="Details-item">
+        <label class="Details-label">Item Name :</label>
+        <input name="menu_item" value="<%= @menu_item.menu_item%>" >
+      </li>
 
-    <% end%>
-  </select>
+      <li class="Details-item">
+        <label class="Details-label">Select Menu :</label>
+        <input name="price" value="<%= @menu_item.price%>">
+      </li>
+      <li class="Details-item">
+        <label class="Details-label">Price :</label>
+        <input name="price" value="<%= @menu_item.price%>">
+      </li>
+    <input class="MenuBar-button" type="button" Onclick="this.form.submit()" value="Update" >
+ <% end %>
+    </ul>
+  </section>

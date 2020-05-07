@@ -17,20 +17,20 @@
 		</tr>
 	</thead>
 	<tbody>
-	<% @cart_item.each_with_index do |cart_item,i|%>
+	<% @cart_item.order(id: :desc).each_with_index do |cart_item,i|%>
 		<tr>
 			<td><%= i+1	 %> </td>
 			<td> <%= cart_item.cart_item%> </td>
 			<td> <%= cart_item.cart_item_price%> </td>
 			<td>
 			<div>
-<%= link_to(cart_item_path(id: cart_item.id,from: "cart"),method: :put,class: "subract") do %>
+<%= link_to(cart_item_path(id: cart_item.id,from: "cart"),method: :put,class: "subract",data: {disable_with: "-"}) do %>
     <%= content_tag('i', nil, class: 'fa fa-minus-circle') %>
     <% end %>
 
 <%=text_field_tag nil, cart_item.item_quantity, disabled: true,class: "MenuItem-quantity"%>
 
-    <%= link_to(cart_item_path(id: cart_item.id, state: true,from: "cart"),method: :put,class: "add") do %>
+    <%= link_to(cart_item_path(id: cart_item.id, state: true,from: "cart"),method: :put,class: "add",data: {disable_with: "+"}) do %>
     <%= content_tag('i', nil, class: 'fa fa-plus-circle') %>
     <% end %>
 

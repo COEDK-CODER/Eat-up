@@ -13,9 +13,10 @@
 .MenuSection{
 
     padding: 20px;
-    background-color: aliceblue;
-    width: 410px;
-    margin: 30px 50px;
+
+    width: 500px;
+    margin: 30px ;
+
 
 }
 .MenuSection-title{
@@ -109,9 +110,7 @@ border-radius: 4px;
   margin-left: 15px;
   cursor: pointer;
 }
-.NewMenu{
-  display: flex;
-}
+
 .CounterButton-plus{
   border: none;
   height: 25px;
