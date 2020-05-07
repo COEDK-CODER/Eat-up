@@ -1,13 +1,10 @@
 class CartItemsController < ApplicationController
   def create
-    if current_user.cart_items.find_by(menu_item_id: params[:menu_item_id])
-    else
-      new_cart_item = CartItem.create!(user_id: current_user.id,
-                                       menu_item_id: params[:menu_item_id],
-                                       cart_item: params[:menu_item],
-                                       cart_item_price: params[:price],
-                                       item_quantity: 1)
-    end
+    new_cart_item = CartItem.create!(user_id: current_user.id,
+                                     menu_item_id: params[:menu_item_id],
+                                     cart_item: params[:menu_item],
+                                     cart_item_price: params[:price],
+                                     item_quantity: 1)
 
     redirect_to "/menu"
   end

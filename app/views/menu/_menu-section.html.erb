@@ -22,7 +22,8 @@
             <%= button_to "Add",cart_items_path(menu_item_id: menu_item.id ,
                                               menu_item: menu_item.menu_item,
                                               price: menu_item.price
-                                              ),method: "post",class: "AddButton" %>
+                                              ),method: "post",class: "AddButton",data: {disable_with: "Adding to cart"} %>
+
              <% end %>
 
           </label>
