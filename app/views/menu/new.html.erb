@@ -7,7 +7,7 @@
         <%= form_with(url: "/menu", method: "Post") do %>
           <li class="Details-item">
             <label class="Details-label">Menu Name :</label>
-            <input name="menu_name", placeholder="New menu name">
+            <input class="Details-input",name="menu_name", placeholder="New menu name">
             <input  type="button" Onclick="this.form.submit()" value="Add" >
           </li>
         <% end %>
@@ -19,11 +19,11 @@
         <%= form_with(url: "/menu_items", method: "Post") do %>
           <li class="Details-item">
             <label class="Details-label">Item Name :</label>
-            <input name="menu_item" , placeholder="New menu item name">
+            <input class="Details-input",name="menu_item" , placeholder="New menu item name">
           </li>
           <li class="Details-item">
             <label class="Details-label">Price :  </label>
-            <input name="price" , placeholder="Price">
+            <input class="Details-input", name="price" , placeholder="Price">
           </li>
          <li class="Details-item">
            <label class="Details-label">Menu Type :</label>
@@ -32,7 +32,7 @@
               <option value="<%= menu.id %>"><%= menu.menu_name %></option>
              <% end %>
             </select>
-            <input  type="button" Onclick="this.form.submit()" value="Add" >
+            <input  class="Details-input",type="button" Onclick="this.form.submit()" value="Add" >
          </li>
  <% end %>
     </ul>

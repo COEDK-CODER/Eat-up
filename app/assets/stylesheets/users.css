@@ -63,16 +63,24 @@ margin: 10px 278px;
 
 .Details-label {
   display: inline-block;
-  width: 180px;
-  color: saddlebrown;
+  width: 210px;
+  color: brown;
   font-weight: bold;
   font-size: 28px;
 }
 
-.Details-item {
+.Details-input{
 
-  margin-bottom: 20px;
-  color: black;
+
+    padding: 8px 10px;
+    /* margin: 8px 0; */
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.Details-item{
+  margin-top: 20px;
 }
 .Flash-error{
   font-family: sans-serif;
