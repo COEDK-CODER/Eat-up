@@ -63,9 +63,10 @@ margin: 10px 278px;
 
 .Details-label {
   display: inline-block;
-  width: 150px;
-  color: #783535;
+  width: 180px;
+  color: saddlebrown;
   font-weight: bold;
+  font-size: 28px;
 }
 
 .Details-item {

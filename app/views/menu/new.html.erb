@@ -3,7 +3,6 @@
   <%= render partial: "dash-section"%>
   <div class="ManageMenu">
     <section class="ManageMenu-section">
-
         <ul>
         <%= form_with(url: "/menu", method: "Post") do %>
           <li class="Details-item">
@@ -11,7 +10,6 @@
             <input name="menu_name", placeholder="New menu name">
             <input  type="button" Onclick="this.form.submit()" value="Add" >
           </li>
-
         <% end %>
       </ul>
     </section>
