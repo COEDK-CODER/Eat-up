@@ -36,7 +36,7 @@
   height: 600px;
 }
 .ManageMenu{
-height: 200px;
+
 background-color: bisque;
 border-radius: 10px;
 padding: 30px;
@@ -44,9 +44,5 @@ margin: 50px 300px;
 
 }
 .ManageMenu-section{
-display: block;
-margin: 10px 5px;
-}
-.MenuItemp{
-  display: block;
+
 }
