@@ -19,6 +19,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = current_user
+    if @user
+      render "edit"
+    else
+      redirect_to "/"
+    end
+  end
+
   def show
     @user = current_user
     if @user
@@ -26,5 +35,15 @@ class UsersController < ApplicationController
     else
       redirect_to "/"
     end
+  end
+
+  def update
+    user = User.find(params[:id])
+    user.first_name = params[:first_name]
+    if params[:password]
+      user.password = params[:password]
+    end
+    user.save!
+    redirect_to "/users/#{params[:id]}"
   end
 end

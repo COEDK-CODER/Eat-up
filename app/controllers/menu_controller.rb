@@ -13,6 +13,8 @@ class MenuController < ApplicationController
   end
 
   def show
-    render plain: "k"
+  end
+
+  def dash
   end
 end

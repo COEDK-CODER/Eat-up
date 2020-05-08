@@ -1,13 +1,11 @@
   <div class="Dash">
-    <form  method="GET">
-      <button class="Dash-button" type="submit">DASHBOARD </button>
-    </form>
-     <form method="GET">
-      <button class="Dash-button" type="submit">My account </button>
-    </form>
+    <%= link_to(dashboard_path,class: 'Dash-button') do %>
+    <%= content_tag('i', nil, class: 'fa fa-dashcube') %> DashBoard
+    <% end %>
+
    <%= link_to(new_menu_path,class: 'Dash-button') do %>
-        Manage Menu
-    <%= content_tag('i', nil, class: 'fa fa-cutlery') %>
+
+    <%= content_tag('i', nil, class: 'fa fa-cutlery') %> Manage Menu
     <% end %>
     <%= link_to(new_user_path,class: 'Dash-button') do %>
     <%= content_tag('i', nil, class: 'fa fa-users') %> Manage Staff

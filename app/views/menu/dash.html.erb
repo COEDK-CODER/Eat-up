@@ -1,0 +1,32 @@
+<h1 class="Admin-title">ADMIN</h1>
+<div class="Dash-items">
+  <%= render partial: "dash-section"%>
+  <div class="DashBoard">
+    <div class="DashBoard-container">
+          <section class="DashBoard-section">
+            <h4>Pending Orders</h4>
+            <p>1 </p>
+          </section>
+         <section class="DashBoard-section">
+            <h4>Active Users</h4>
+            <p> <%= User.all.count%> members</p>
+          </section>
+    </div>
+    <div class="DashBoard-container">
+          <section class="DashBoard-section">
+            <h4>Pending Orders</h4>
+            <p>  <%= Order.all.where(order_status: "Not Delivered").count%> </p>
+          </section>
+         <section class="DashBoard-section">
+            <h4>Orders Recived Today</h4>
+            <p>  <%= Order.all.count%> </p>
+          </section>
+
+    </div>
+
+           <section class="DashBoard-section">
+            <h4>Payment Recived Today</h4>
+            <p>1 Million</p>
+          </section>
+</div>
+</div>

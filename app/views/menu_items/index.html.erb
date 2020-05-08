@@ -1,9 +1,0 @@
-<form>
-  Select your favorite fruit:
-  <select id="mySelect" name="menu_no" >
-<% MenuItem.menu_items(MenuItem.no).each do |menu| %>
-    <option type= "button" name="menu_no" onclick= "this.form.submit()" value= "<%= menu.id %>" > <%= menu.menu_item%> </option>
-
-    <% end%>
-  </select>
-</form>

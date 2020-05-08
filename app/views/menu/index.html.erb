@@ -1,16 +1,15 @@
 
 <article class="MenuPage" >
   <h1 class="MenuPageTitle">MENU</h1>
-
 <div class="MenuContent">
 <% if @current_user.role=="owner"%>
+<div>
   <%= render partial: "dash-section"%>
+   <%= image_tag("food.jpg",class: "MenuContent-image") %>
+   </div>
   <%else%>
   <%= image_tag("food.jpg",class: "MenuContent-image") %>
   <% end%>
-
-
-
   <div>
     <% @menu.each do |menu| %>
     <div class="Menu">

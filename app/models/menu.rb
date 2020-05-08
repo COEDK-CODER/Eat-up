@@ -4,7 +4,7 @@ class Menu < ActiveRecord::Base
   def self.active_menu
     menus = Array.new
     Menu.all.each do |menu|
-      menus.push(menu) if Menu.exists? id: menu.id
+      menus.push(menu)
     end
     @active_menus = Array.new
     for i in 0..menus.size - 1
