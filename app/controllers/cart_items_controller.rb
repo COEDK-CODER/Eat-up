@@ -5,8 +5,9 @@ class CartItemsController < ApplicationController
                                      cart_item: params[:menu_item],
                                      cart_item_price: params[:price],
                                      item_quantity: 1)
+    menu_id = MenuItem.find(params[:menu_item_id]).menu_id
 
-    redirect_to "/menu"
+    redirect_to "/menu##{Menu.find(menu_id).menu_name}"
   end
 
   def index
@@ -14,11 +15,14 @@ class CartItemsController < ApplicationController
   end
 
   def update
+    menu_item_id = CartItem.find(params[:id]).menu_item_id
     CartItem.update(params[:id], params[:state])
+
     if params[:from] == "cart"
       redirect_to "/cart_items"
     else
-      redirect_to "/menu"
+      menu_item = MenuItem.find(menu_item_id)
+      redirect_to "/menu/##{Menu.find(menu_item.menu_id).menu_name}"
     end
   end
 
