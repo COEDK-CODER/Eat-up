@@ -22,7 +22,7 @@
 		<td> EATORD<%= order.id%></td>
 		<td><%= order.amount%></td>
     <td>
-		<p class="OrderStatus "  >
+		<p class="OrderStatus <% if order.order_status=="Not Delivered"%>  UnDeliver_button <% end %>">
 		 <%= order.order_status%></td>
 		 </p>
 		<td>

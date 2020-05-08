@@ -38,6 +38,7 @@
   display: inline-flex;
   padding: 5px;
   align-items: center;
+  width: 500px;
 }
 .Menu{
   display: flex;
@@ -85,6 +86,7 @@ background-color: linen;
 
 .MenuItem-list:hover {
   background-color: rgb(194, 243, 243) ;
+
 }
 
 .MenuItem-list:hover .AddButton{

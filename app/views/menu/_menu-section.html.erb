@@ -5,7 +5,7 @@
       <% menu_items.each do |menu_item| %>
         <li class="MenuItem-list">
            <label class="MenuItem-container">
-           <%= menu_item.menu_item %>
+              <%= menu_item.menu_item %>
               <p class="MenuItem-price"> Rs. <%=menu_item.price %></p>
               <% qty=nil%>
               <% qty=@cart_item.quantity(menu_item.id)%>
