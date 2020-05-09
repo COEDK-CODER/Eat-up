@@ -1,8 +1,7 @@
 class MenuItem < ActiveRecord::Base
   belongs_to :menu
-  class << self; attr_accessor :no end
-  @no = nil
-
+  validates :menu_item, presence: true
+  validates :price, presence: true
   def self.menu_items(id)
     MenuItem.where(menu_id: id)
   end

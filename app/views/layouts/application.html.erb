@@ -19,6 +19,9 @@
   <% if flash[:error] %>
     <p class="Flash-error"> <%= flash[:error]%></p>
   <% end %>
+  <% if flash[:notice] %>
+    <p class="Flash-error"> <%= flash[:notice]%></p>
+  <% end %>
   <div class="Cafeteria"  >
   <%if @current_user%>
     <div class="MenuBar">

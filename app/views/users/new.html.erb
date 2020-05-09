@@ -4,7 +4,7 @@
     <%=form_with url: users_path do |form| %>
       <div class="Form-section">
         <p class="Form-section-label">First Name</p>
-        <%= form.text_field :first_name , class: "Form-section-input" ,placeholder: "First Name"%>
+        <%= form.text_field :first_name , class: "Form-section-input" ,placeholder: "First Name",minlength: 4 %>
       </div>
       <div class="Form-section">
         <p class="Form-section-label">Last Name</p>
@@ -16,7 +16,7 @@
       </div>
       <div class="Form-section">
         <p class="Form-section-label">Password</p>
-        <%= form.password_field :password , class: "Form-section-input",placeholder: "Password"%>
+        <%= form.password_field :password , class: "Form-section-input",placeholder: "Password",minlength: 3%>
       </div>
 
       <%= hidden_field_tag "role", "customer" %>

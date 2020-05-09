@@ -3,11 +3,15 @@ class MenuItemsController < ApplicationController
   end
 
   def create
-    new_menu_item = params[:menu_item]
-    price = params[:price]
-    menu_id = params[:menu_id]
-    MenuItem.create!(menu_item: new_menu_item, description: nil, price: price, menu_id: menu_id)
-    redirect_to "/menu/new"
+    new_menu_item = MenuItem.new(menu_item: params[:menu_item], description: nil,
+                                 price: params[:price],
+                                 menu_id: params[:menu_id])
+    if new_menu_item.save
+      flash[:notice] = "#{params[:menu_item]} successfully created"
+    else
+      flash[:error] = new_menu_item.errors.full_messages.join(",")
+    end
+    redirect_to new_menu_path
   end
 
   def show
@@ -23,8 +27,13 @@ class MenuItemsController < ApplicationController
     menu_item.menu_item = params[:menu_item]
     menu_item.menu_id = params[:menu_id]
     menu_item.price = params[:price]
-    menu_item.save!
-    redirect_to "/menu"
+    if menu_item.save
+      menu_item.save!
+      redirect_to "/menu"
+    else
+      flash[:error] = menu_item.errors.full_messages.join(",")
+      redirect_to edit_menu_item_path(id: params[:id])
+    end
   end
 
   def destroy

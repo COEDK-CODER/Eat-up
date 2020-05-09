@@ -6,16 +6,17 @@ class UsersController < ApplicationController
   end
 
   def create
-    new_user = User.create!(first_name: params[:first_name],
-                            last_name: params[:last_name],
-                            role: params[:role],
-                            email: params[:email],
-                            password: params[:password])
-    if new_user.id
+    new_user = User.new(first_name: params[:first_name],
+                        last_name: params[:last_name],
+                        role: params[:role],
+                        email: params[:email],
+                        password: params[:password])
+    if new_user.save
       session[:current_user_id] = new_user.id
       redirect_to "/users/#{new_user.id}"
     else
-      redirect_to "/"
+      flash[:error] = new_user.errors.full_messages.join(",")
+      redirect_to new_user_path
     end
   end
 
@@ -43,7 +44,12 @@ class UsersController < ApplicationController
     if params[:password]
       user.password = params[:password]
     end
-    user.save!
-    redirect_to "/users/#{params[:id]}"
+    if user.save
+      user.save!
+      redirect_to "/users/#{params[:id]}"
+    else
+      flash[:error] = "User name can't be blank"
+      redirect_to edit_user_path(id: params[:id])
+    end
   end
 end
