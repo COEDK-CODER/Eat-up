@@ -7,7 +7,7 @@ class MenuController < ApplicationController
   def create
     new_menu = Menu.new(menu_name: params[:menu_name])
     if new_menu.save
-      flash[:notice] = "#{params[:menu_name]} successfully created"
+      flash[:notice] = "#{params[:menu_name]} successfully Added"
       redirect_to "/menu/new"
     else
       flash[:error] = new_menu.errors.full_messages.join(",")

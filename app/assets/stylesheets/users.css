@@ -9,8 +9,8 @@ border-radius: 10px;
 .User-credentials{
   font-size: 25px;
 
-  width: 450px;
-  padding: 5px 160px;
+
+  padding: 5px 185px;
   margin: 10px 0px;
 
 
@@ -91,13 +91,20 @@ border-radius: 4px;
   font-family: sans-serif;
   border-radius:  5px;
   font-size: 20px;
-
-  color: darkred;
   margin: auto;
   width: max-content;
-  background-color: antiquewhite;
-
   padding: 10px 20px;
   background-color: #f44336;
+  color: white;
+}
+.Flash-notice{
+  background-color: #4CAF50;
+  font-family: sans-serif;
+  border-radius:  5px;
+  font-size: 20px;
+  margin: 0px;
+  height: 25px;
+  width: max-content;
+  padding: 10px 20px;
   color: white;
 }

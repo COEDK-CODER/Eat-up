@@ -7,7 +7,7 @@ class MenuItemsController < ApplicationController
                                  price: params[:price],
                                  menu_id: params[:menu_id])
     if new_menu_item.save
-      flash[:notice] = "#{params[:menu_item]} successfully created"
+      flash[:notice] = "#{params[:menu_item]} successfully Added"
     else
       flash[:error] = new_menu_item.errors.full_messages.join(",")
     end
@@ -37,7 +37,9 @@ class MenuItemsController < ApplicationController
   end
 
   def destroy
-    MenuItem.find(params[:id]).destroy
-    redirect_to "/"
+    menu_item = MenuItem.find(params[:id])
+    menu_id = menu_item.menu_id
+    menu_item.destroy
+    redirect_to "/menu##{Menu.find(menu_id).menu_name}"
   end
 end
