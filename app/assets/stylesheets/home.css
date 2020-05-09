@@ -1,5 +1,7 @@
 body{
-  background-color: rgb(237, 244, 250);
+  background-color: rgb(230, 242, 252);
+
+
 }
 .Cafeteria-authenticate{
   font-size: 20px;
@@ -9,13 +11,14 @@ body{
   color: slateblue;
 }
 .Cafeteria{
-  width: 100%;
-  margin: auto;
+  width: max-content;
   font-family: sans-serif;
+  margin: auto;
 
 }
 .Cafeteria-logo{
   width: 100px;
+
   margin-left: 300px;
 
 }
