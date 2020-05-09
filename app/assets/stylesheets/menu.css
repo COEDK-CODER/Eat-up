@@ -68,12 +68,13 @@ width: 30px;
   background-color: brown;
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 15px 30px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 15px;
   cursor: pointer;
+  width: 120px;
 }
 .MenuBar-button:hover{
   background-color: darkred;
