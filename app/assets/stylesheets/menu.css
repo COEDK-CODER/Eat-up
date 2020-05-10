@@ -64,6 +64,7 @@ width: 30px;
 
 .MenuBar-button
 {
+    font-weight: bold;
   font-family: sans-serif;
   background-color: brown;
   border: none;

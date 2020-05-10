@@ -16,7 +16,7 @@
       <h1 class="Cafeteria-title ">Welcome to EAT'UP Cafeteria</h1>
   </div>
   <hr class="Cafeteria-header-line">
-  <% if flash[:error] %>
+    <% if flash[:error] %>
     <p class="Flash-error"> <%= flash[:error]%></p>
   <% end %>
 
@@ -40,12 +40,17 @@
     <%= link_to(destroy_session_path,class: 'MenuBar-button',method: :delete) do %>
     <%= content_tag('i', nil, class: 'fa fa-sign-out') %> Sign-Out
     <% end %>
+
+
     </div>
+
 
   <%end%>
 
 
       <%= yield %>
+
+
 
   </div>
   </body>

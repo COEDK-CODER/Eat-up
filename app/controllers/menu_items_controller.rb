@@ -7,7 +7,7 @@ class MenuItemsController < ApplicationController
                                  price: params[:price],
                                  menu_id: params[:menu_id])
     if new_menu_item.save
-      flash[:notice] = "#{params[:menu_item]} successfully Added"
+      flash[:notice] = "#{params[:menu_item]} Added Successfully"
     else
       flash[:error] = new_menu_item.errors.full_messages.join(",")
     end

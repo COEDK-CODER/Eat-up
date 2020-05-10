@@ -4,28 +4,28 @@
   <div class="DashBoard">
     <div class="DashBoard-container">
           <section class="DashBoard-section">
-            <h4>Pending Orders</h4>
-            <p>1 </p>
+            <h4 class="DashBoard-section-title">Active Users</h4>
+            <p  > <%= User.all.count%> Members</p>
           </section>
          <section class="DashBoard-section">
-            <h4>Active Users</h4>
-            <p> <%= User.all.count%> members</p>
+            <h4 class="DashBoard-section-title">Order Recived Today</h4>
+            <p > <%= Order.all.count%></p>
           </section>
     </div>
     <div class="DashBoard-container">
           <section class="DashBoard-section">
-            <h4>Pending Orders</h4>
+            <h4 class="DashBoard-section-title">Pending Orders</h4>
             <p>  <%= Order.all.where(order_status: "Not Delivered").count%> </p>
           </section>
          <section class="DashBoard-section">
-            <h4>Orders Recived Today</h4>
+             <h4 class="DashBoard-section-title">Active Users</h4>
             <p>  <%= Order.all.count%> </p>
           </section>
 
     </div>
 
            <section class="DashBoard-section">
-            <h4>Payment Recived Today</h4>
+            <h4 class="DashBoard-section-title">Payment Received Today</h4>
             <p>1 Million</p>
           </section>
 </div>

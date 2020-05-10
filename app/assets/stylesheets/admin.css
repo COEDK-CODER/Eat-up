@@ -38,7 +38,7 @@
 background-color: bisque;
 border-radius: 10px;
 padding: 30px;
-margin: 50px 300px;
+margin: 50px 0px 50px 300px;
 width: 350px;
 
 }
@@ -56,15 +56,20 @@ margin: 30px 100px;
     height:50px;
     padding:19px;
     margin-bottom:20px;
-    background-color:#f5f5f5da;
-    border:1px solid #e3e3e3;
+    background-color: #f5f5f5da;
+   border:1px solid #e3e3e3;
     border-radius:4px;
     margin-right: 50px;
 
+
     }
-    .row{
-      display: flex;
-    }
+
     .DashBoard-container{
+
 height: 300px;
+    }
+    .DashBoard-section-title{
+        margin-bottom: 10px;
+        color: darkred;
+        font-weight: bold;
     }
