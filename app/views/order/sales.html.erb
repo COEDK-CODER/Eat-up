@@ -20,9 +20,9 @@
     </tr>
 	</thead>
 	<tbody>
-
-<% if !(Order.valid_date(@from_date,@to_date))%>
 <% if @orders %>
+<% if !(Order.valid_date(@from_date,@to_date))%>
+
 <% @orders.order(:id).each_with_index do |order,i|%>
 <tr>
 
