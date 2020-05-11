@@ -37,4 +37,25 @@ class OrderController < ApplicationController
       redirect_to "/menu"
     end
   end
+
+  def sales
+    @from_date = params[:from_date]
+    @to_date = params[:to_date]
+
+    if params[:from].eql?("dash")
+      @orders = nil
+    else
+      if @from_date.eql?("") or @to_date.eql?("")
+        flash[:error] = "Date can't be blank"
+
+        redirect_to "/sales_report?from_date=#{Date.new}&to_date=#{Date.new}"
+      elsif @from_date > @to_date
+        flash[:error] = "From Date can't be Greater than To Date"
+
+        redirect_to "/sales_report?from_date=#{Date.new}&to_date=#{Date.new}"
+      else
+        @orders = Order.all.where("order_date >= ? and order_date <= ?", @from_date, @to_date)
+      end
+    end
+  end
 end
