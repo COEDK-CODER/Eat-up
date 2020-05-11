@@ -20,7 +20,7 @@
 
 }
 .MenuSection-title{
-
+  margin-right: 10px;
   font-size: 35px;
   color: chocolate;
 }
@@ -61,10 +61,14 @@ width: 30px;
 
 
 }
+.MenuSection-header{
+  display: flex;
 
+  align-items: first baseline;
+}
 .MenuBar-button
 {
-    font-weight: bold;
+
   font-family: sans-serif;
   background-color: brown;
   border: none;
@@ -73,7 +77,7 @@ width: 30px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 15px;
+  font-size: 16px;
   cursor: pointer;
   width: 120px;
 }

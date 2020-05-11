@@ -23,4 +23,20 @@ class MenuController < ApplicationController
 
   def dash
   end
+
+  def edit
+    @menu = Menu.find(params[:id])
+  end
+
+  def update
+    menu = Menu.find(params[:id])
+    menu.menu_name = params[:menu_name]
+    if menu.save
+      menu.save!
+      redirect_to "/menu"
+    else
+      flash[:error] = menu.errors.full_messages.join(",")
+      redirect_to edit_menu_path(id: params[:id])
+    end
+  end
 end

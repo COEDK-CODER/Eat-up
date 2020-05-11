@@ -20,7 +20,7 @@
       </li>
       <li class="Details-item">
 
- <%= link_to(edit_user_path(id: @user.id),class: 'MenuBar-button') do %>
+ <%= link_to(edit_user_path(id: @user.id),class: 'MenuBar-button',  :onclick => 'alert("Note: Not neccessary to update the password")') do %>
                      <%= content_tag('i', nil, class: 'fa fa-pencil') %> Edit
                 <% end %>
 </li>

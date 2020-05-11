@@ -13,5 +13,9 @@
     <%= content_tag('i', nil, class: 'fa fa-paper-plane') %> Manage Orders
     <% end %>
     <%= link_to(invoices_statement_path(from: "dash"),class: 'Dash-button') do %>
-    <%= content_tag('i', nil, class: 'fa fa-line-chart') %> Invoices Report    <% end %>
+    <%= content_tag('i', nil, class: 'fa fa-line-chart') %> Invoices Report
+    <% end %>
+        <%= link_to(invoices_statement_path(from: "dash"),class: 'Dash-button') do %>
+    <%= content_tag('i', nil, class: 'fa fa-pie-chart') %> Item Sales Report
+    <% end %>
   </div>
