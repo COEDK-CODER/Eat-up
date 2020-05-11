@@ -44,7 +44,7 @@ width: 350px;
 
 }
 .ManageMenu-section{
-
+display: block;
 }
 .DashBoard{
   width: max-content;
@@ -74,6 +74,12 @@ height: 300px;
         color: darkred;
         font-weight: bold;
     }
-.Date{
-  height: 20px;
+.Invoice-date{
+  margin-top: 20px;
+  display: flex;
+  align-items: baseline;
+margin-left: 30px;
+}
+.Invoice-section{
+width: 1210px;
 }

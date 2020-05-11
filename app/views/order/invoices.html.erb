@@ -1,0 +1,46 @@
+<h1 class="Admin-title">Invoices Report</h1>
+<div class="Dash-items">
+<%= render partial: "dash-section"%>
+<div class="Invoice-section">
+
+   <%= form_with(url: "/invoices_statement", method: "get") do %>
+   <section class="Invoice-date">
+    <p>From Date</p>
+    <%= date_field_tag('from_date',@from_date,class: "Date")%>
+
+    <p>To Date</p>
+    <%= date_field_tag 'to_date',@to_date,class: "Date"%>
+    <input type="button", value="Get", Onclick="this.form.submit()" >
+    </section>
+    <% end%>
+
+   <section class="ManageMenu-section">
+  <table class="OrderCart">
+	<thead>
+    <tr>
+      <th>S No.</th>
+      <th>Date</th>
+      <th>Order-Id</th>
+      <th>Amount</th>
+      <th>Action</th>
+    </tr>
+	</thead>
+	<tbody>
+  <% if @orders %>
+  <% if !(Order.valid_date(@from_date,@to_date))%>
+  <% @orders.order(:id).each_with_index do |order,i|%>
+    <tr>
+    	<td><%= i+1%></td>
+  	  <td><%= order.order_date%></td>
+	    <td><%= order.id%></td>
+  	  <td><%= order.amount%></td>
+    	<td>ll</td>
+    </tr>
+  <% end %>
+  <% end %>
+  <% end %>
+	</tbody>
+</table>
+</section>
+</div>
+</div>
