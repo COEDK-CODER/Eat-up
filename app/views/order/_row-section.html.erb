@@ -15,7 +15,7 @@
 
 
 		 </td>
-		<td><%= link_to(order_path(order.id,from: "all_orders"),class: 'Menu-button TrashIcon') do %>
+		<td><%= link_to(order_path(order.id),class: 'Menu-button TrashIcon') do %>
     <%= content_tag('i', nil, class: 'fa fa-external-link') %> Expand
     <% end %>
     </td>

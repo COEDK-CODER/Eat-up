@@ -6,7 +6,7 @@
    <%= form_with(url: "/invoices_statement", method: "get") do %>
    <section class="Invoice-date">
     <p class="DashBoard-section-title">From Date :-</p>
-    <%= date_field_tag('from_date',@from_date)%>
+    <%= date_field_tag('from_date',@from_date, max: Date.today)%>
 
     <p class="DashBoard-section-title" >To Date :-</p>
     <%= date_field_tag('to_date',@to_date, max: Date.today )%>
