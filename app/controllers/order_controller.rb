@@ -10,14 +10,16 @@ class OrderController < ApplicationController
   end
 
   def show
+    @from=params[:from]
     if current_user.role.eql?("owner")
       @order = Order.find(params[:id])
     else
-      @order = Order.where(user_id: current_user.id).find(params[:id])
+      @order = Order.of_user(current_user).find(params[:id])
     end
   end
 
   def update
+    ensure_owner_logged_in
     order = Order.find(params[:id])
     if params[:state]
       order.order_status = "Delivered"
@@ -29,16 +31,16 @@ class OrderController < ApplicationController
     redirect_to "/all_orders"
   end
 
+  def index
+  end
+
   def display
-    if current_user.role.eql?("owner")
-      @orders = Order.all
-      render "display"
-    else
-      redirect_to "/menu"
-    end
+    ensure_owner_logged_in
+    @orders = Order.all
   end
 
   def invoices
+    ensure_owner_logged_in
     @from_date = params[:from_date]
     @to_date = params[:to_date]
 

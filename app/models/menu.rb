@@ -5,7 +5,9 @@ class Menu < ActiveRecord::Base
   def self.active_menu
     menus = Array.new
     Menu.all.order(:id).each do |menu|
-      menus.push(menu)
+      if menu.menu_items.count > 0
+        menus.push(menu)
+      end
     end
 
     @active_menus = Array.new

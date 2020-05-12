@@ -1,9 +1,14 @@
 class ApplicationController < ActionController::Base
-
   before_action :ensure_logged_in
 
   def ensure_logged_in
     unless current_user
+      redirect_to "/"
+    end
+  end
+
+  def ensure_owner_logged_in
+    unless current_user.role.eql?("owner")
       redirect_to "/"
     end
   end

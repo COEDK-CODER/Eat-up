@@ -24,6 +24,14 @@
 	<% end %>
 	</tbody>
 </table>
-<%= link_to(order_index_path,class: 'Menu-button  Collapse') do %>
+<% if @from.eql?("all_orders")%>
+<%= link_to(all_orders_path,class: 'Menu-button  Collapse') do %>
+
     <%= content_tag('i', nil, class: 'fa fa-compress') %> Collapse
     <% end %>
+		<% else%>
+		<%= link_to(order_index_path,class: 'Menu-button  Collapse') do %>
+
+    <%= content_tag('i', nil, class: 'fa fa-compress') %> Collapse
+    <% end %>
+		<% end%>

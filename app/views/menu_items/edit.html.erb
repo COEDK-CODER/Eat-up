@@ -12,7 +12,8 @@
 
       <li class="Details-item">
         <label class="Details-label">Item Name :</label>
-        <input name="menu_item" value="<%= @menu_item.menu_item%>" >
+
+        <%=text_field_tag 'menu_item', "#{@menu_item.menu_item}",  minlength: 3, autofocus: true%>
       </li>
 
       <li class="Details-item">

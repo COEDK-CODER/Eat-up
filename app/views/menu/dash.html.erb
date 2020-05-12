@@ -5,28 +5,28 @@
     <div class="DashBoard-container">
           <section class="DashBoard-section">
             <h4 class="DashBoard-section-title">Active Users</h4>
-            <p  > <%= User.all.count%> Members</p>
+            <p> <%= User.all.count%> Members</p>
           </section>
          <section class="DashBoard-section">
             <h4 class="DashBoard-section-title">Order Recived Today</h4>
-            <p > <%= Order.all.count%></p>
+            <p > <%= Order.where("order_date = ?",Date.today).count%></p>
           </section>
     </div>
     <div class="DashBoard-container">
           <section class="DashBoard-section">
             <h4 class="DashBoard-section-title">Pending Orders</h4>
-            <p>  <%= Order.all.where(order_status: "Not Delivered").count%> </p>
+            <p>  <%= Order.not_delivered.count%> </p>
           </section>
          <section class="DashBoard-section">
              <h4 class="DashBoard-section-title">Active Users</h4>
-            <p>  <%= Order.all.count%> </p>
+            <p>  <%= User.all.count%> Members</p>
           </section>
 
     </div>
 
            <section class="DashBoard-section">
             <h4 class="DashBoard-section-title">Payment Received Today</h4>
-            <p>1 Million</p>
+            <p>Rs. <%= Order.today_payment%></p>
           </section>
 </div>
 </div>

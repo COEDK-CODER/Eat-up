@@ -11,7 +11,7 @@ class CartItemsController < ApplicationController
   end
 
   def index
-    @cart_item = CartItem.where(user_id: current_user.id)
+    @cart_item = CartItem.of_user(current_user)
   end
 
   def update
@@ -27,12 +27,12 @@ class CartItemsController < ApplicationController
   end
 
   def destroy
-    CartItem.find(params[:id]).destroy
+    CartItem.of_user(current_user).find(params[:id]).destroy
     redirect_to cart_items_path
   end
 
   def clear
-    CartItem.where(user_id: current_user.id).destroy_all
+    CartItem.of_user(current_user).destroy_all
     redirect_to cart_items_path
   end
 end

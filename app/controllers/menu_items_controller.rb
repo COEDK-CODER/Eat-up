@@ -1,4 +1,6 @@
 class MenuItemsController < ApplicationController
+  before_action :ensure_owner_logged_in
+
   def new
   end
 

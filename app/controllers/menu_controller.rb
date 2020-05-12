@@ -1,10 +1,11 @@
 class MenuController < ApplicationController
   def index
-    @cart_item = CartItem.where(user_id: current_user.id)
+    @cart_item = CartItem.of_user(current_user)
     @menu = Menu.active_menu
   end
 
   def create
+    ensure_owner_logged_in
     new_menu = Menu.new(menu_name: params[:menu_name])
     if new_menu.save
       flash[:notice] = "#{params[:menu_name]} Added Successfully"
@@ -16,19 +17,20 @@ class MenuController < ApplicationController
   end
 
   def new
-  end
-
-  def show
-  end
-
-  def dash
+    ensure_owner_logged_in
   end
 
   def edit
+    ensure_owner_logged_in
     @menu = Menu.find(params[:id])
   end
 
+  def dash
+    ensure_owner_logged_in
+  end
+
   def update
+    ensure_owner_logged_in
     menu = Menu.find(params[:id])
     menu.menu_name = params[:menu_name]
     if menu.save

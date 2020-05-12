@@ -6,7 +6,7 @@
       <%=form_with url: menu_index_path do |form| %>
         <div class="Form-section">
           <p class="Form-section-label">New Menu</p>
-          <%= form.text_field :menu_name , class: "Form-section-input" ,placeholder: "New Menu Name",minlength: 3%>
+          <%= form.text_field :menu_name , class: "Form-section-input" ,placeholder: "New Menu Name",minlength: 3, autofocus: true%>
         </div>
         <div class="Form-section">
           <%= form.submit "Add Menu" , class: "Form-section-submit ",data: {disable_with: "Menu is creating.."}%>
@@ -17,7 +17,7 @@
       <%=form_with url: menu_items_path do |form| %>
         <div class="Form-section ">
           <p class="Form-section-label">New Menu Item</p>
-          <%= form.text_field :menu_item , class: "Form-section-input" ,placeholder: "New Menu Item Name"%>
+          <%= form.text_field :menu_item , class: "Form-section-input" ,placeholder: "New Menu Item Name",minlength: 3, autofocus: true  %>
         </div>
         <div class="Form-section Price">
           <p class="Form-section-label">Price</p>
