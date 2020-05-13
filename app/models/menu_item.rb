@@ -15,4 +15,11 @@ class MenuItem < ActiveRecord::Base
     end
     menus
   end
+  def self.sales(orders, fdate, edate)
+    if !(Order.valid_date(fdate, edate)) and orders.count > 0
+      orderitems = OrderItem.where("order_id >= ? and order_id <= ?", orders.first.id, orders.last.id).group(:menu_item_name).order(:menu_item_name).sum(:quantity)
+    else
+      orderitems = nil
+    end
+  end
 end

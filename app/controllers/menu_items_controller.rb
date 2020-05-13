@@ -21,7 +21,7 @@ class MenuItemsController < ApplicationController
         redirect_to "/menu_items?from_date=#{Date.new}&to_date=#{Date.new}"
       else
         @orders = Order.all.where("order_date >= ? and order_date <= ?", @from_date, @to_date)
-        @orderitems = OrderItem.sales(@orders, @from_date, @to_date)
+        @orderitems = MenuItem.sales(@orders, @from_date, @to_date)
       end
     end
   end

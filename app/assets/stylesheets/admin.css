@@ -83,3 +83,5 @@ margin-left: 30px;
 .Invoice-section{
 width: 1210px;
 }
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-clear-button { display: none; }
