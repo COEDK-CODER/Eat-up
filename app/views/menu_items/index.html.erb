@@ -18,20 +18,20 @@
     </tr>
 	</thead>
 	<tbody>
-<% if @orders %>
-    <% if !(Order.valid_date(@from_date,@to_date))%>
-  <% if @orders.count >0%>
-        <% orderitems=OrderItem.sales(@orders)%>
-        <% orderitems = orderitems.sort_by{|key,value| -value } %>
-        <% orderitems.each_with_index do |order_item,i| %>
+<% if @orders and @orderitems %>
+
+
+
+        <% @orderitems = @orderitems.sort_by{|key,value| -value } %>
+        <% @orderitems.each_with_index do |order_item,i| %>
           <tr>
             <td><%= i+1%></td>
             <td><%= order_item[0] %></td>
             <td><%= order_item[1] %></td>
           </tr>
 
-          <% end %>
-        <% end %>
+
+
       <% end %>
     <% end %>
   </tbody>
