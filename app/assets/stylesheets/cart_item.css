@@ -8,29 +8,34 @@
   transition-duration: 0.4s;
   cursor: pointer;
 }
+
 .cart_view {
   background-color: white;
   color: black;
   border: 2px solid #4CAF50;
   margin-left: 750px;
 }
+
 .cart_view:hover {
   background-color: #4CAF50;
   color: white;
 }
-.add{
-color: green;
+
+.add {
+  color: green;
 }
-.subract{
-color: gray;
+
+.subract {
+  color: gray;
 }
-.Cart-banner{
+
+.Cart-banner {
   width: 440px;
   margin: 5px 480px;
   padding: 4px;
 }
-.Menu-button
-{
+
+.Menu-button {
   margin-left: 620px;
   font-family: sans-serif;
   background-color: forestgreen;
@@ -43,28 +48,34 @@ color: gray;
   font-size: 16px;
   cursor: pointer;
 }
-.Menu-button:hover{
+
+.Menu-button:hover {
   background-color: rgb(16, 168, 16);
 }
-.Add_more{
+
+.Add_more {
   padding: 10px;
 }
-.Clear_cart{
+
+.Clear_cart {
   padding: 10px;
   background-color: darkred;
   margin-left: 0px;
 }
-.Clear_cart:hover{
+
+.Clear_cart:hover {
   padding: 10px;
   background-color: rgb(170, 23, 23);
   margin-left: 0px;
 }
-.TrashIcon{
-padding: 2px;
-background-color: transparent;
-color: darkblue;
-margin-left: 0px;
+
+.TrashIcon {
+  padding: 2px;
+  background-color: transparent;
+  color: darkblue;
+  margin-left: 0px;
 }
-.TrashIcon:hover{
+
+.TrashIcon:hover {
   background-color: rgb(177, 210, 243);
 }

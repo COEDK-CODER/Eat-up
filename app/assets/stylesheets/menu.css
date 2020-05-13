@@ -1,74 +1,66 @@
-
-.MenuPageTitle{
-
+.MenuPageTitle {
   line-height: 2;
   font-size: 30px;
-  background-color:bisque;
+  background-color: bisque;
   padding: 0px 610px;
   border-style: solid;
   border-width: 4px;
   border-color: darkred;
-
 }
-.MenuSection{
 
-    padding: 20px;
-
-    width: 500px;
-    margin: 30px ;
-
-
+.MenuSection {
+  padding: 20px;
+  width: 500px;
+  margin: 30px;
 }
-.MenuSection-title{
+
+.MenuSection-title {
   margin-right: 10px;
   font-size: 35px;
   color: chocolate;
 }
-.MenuItem{
+
+.MenuItem {
   list-style: decimal;
   margin-left: 40px;
-
-
 }
-.MenuItem-list{
+
+.MenuItem-list {
   padding: 5px;
   font-size: 20px;
 }
-.MenuItem-container{
+
+.MenuItem-container {
   display: inline-flex;
   padding: 5px;
   align-items: center;
-
 }
-.Menu{
+
+.Menu {
   display: flex;
 }
-.MenuItem-price{
+
+.MenuItem-price {
   margin: auto 15px;
   font-size: 16px;
   color: darkblue;
   padding: 4px;
-
 }
-.MenuItem-quantity{
+
+.MenuItem-quantity {
   background-color: white;
   padding-left: 10px;
   border: none;
-
   height: 25px;
-width: 30px;
-
-
-
+  width: 30px;
 }
-.MenuSection-header{
-  display: flex;
 
+.MenuSection-header {
+  display: flex;
   align-items: first baseline;
 }
-.MenuBar-button
-{
 
+.MenuBar-button {
   font-family: sans-serif;
   background-color: brown;
   border: none;
@@ -81,55 +73,56 @@ width: 30px;
   cursor: pointer;
   width: 120px;
 }
-.MenuBar-button:hover{
+
+.MenuBar-button:hover {
   background-color: darkred;
 }
 
-.MenuBar{
+.MenuBar {
   display: flex;
-background-color: linen;
+  background-color: linen;
 }
 
 .MenuItem-list:hover {
-  background-color: rgb(194, 243, 243) ;
-
+  background-color: rgb(194, 243, 243);
 }
 
-.MenuItem-list:hover .AddButton{
+.MenuItem-list:hover .AddButton {
   visibility: visible;
 }
 
-
-.MenuContent{
-display: flex;
+.MenuContent {
+  display: flex;
 }
-.MenuContent-image{
+
+.MenuContent-image {
   height: 700px;
   width: 300px;
 }
+
 .AddButton {
   visibility: hidden;
   background-color: #4CAF50;
   border: none;
   color: white;
   padding: 4px 8px;
-border-radius: 4px;
+  border-radius: 4px;
   font-size: 16px;
   margin: 4px 2px;
   margin-left: 15px;
   cursor: pointer;
 }
 
-.CounterButton-plus{
+.CounterButton-plus {
   border: none;
   height: 25px;
   width: 30px;
-background-color:aquamarine;
-
+  background-color: aquamarine;
 }
-.CounterButton-minus{
+
+.CounterButton-minus {
   border: none;
   height: 25px;
   width: 30px;
-  background-color:lightgray;
+  background-color: lightgray;
 }

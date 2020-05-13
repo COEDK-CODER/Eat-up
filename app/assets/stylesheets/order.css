@@ -1,23 +1,23 @@
 .OrderCart {
-
-  padding:5px;
+  padding: 5px;
   width: 60%;
-margin:10px auto;
+  margin: 10px auto;
 }
+
 .OrderCart th {
-  border:1px solid #C0C0C0;
-  padding:5px;
+  border: 1px solid #C0C0C0;
+  padding: 5px;
   background: rgb(165, 208, 235);
   font-size: 20px;
-
-font-weight: bold;
+  font-weight: bold;
 }
+
 .OrderCart td {
-  border:1px solid #C0C0C0;
-  padding:5px;
+  border: 1px solid #C0C0C0;
+  padding: 5px;
 }
 
-.OrderButton{
+.OrderButton {
   background-color: forestgreen;
   color: white;
   margin-left: 1050px;
@@ -25,43 +25,50 @@ font-weight: bold;
   padding: 14px 20px;
   border-radius: 4px;
 }
-.OrderDetails{
+
+.OrderDetails {
   display: flex;
   margin: 50px 500px;
-padding: 10px;
+  padding: 10px;
   align-items: baseline;
 }
-.OrderType{
-font-size: 18px;
-display: flex;
-margin-right:50px ;
-color: black;
-}
-.OrderType-label{
-  font-weight: initial;
 
-font-size: 20px;
+.OrderType {
+  font-size: 18px;
+  display: flex;
+  margin-right: 50px;
+  color: black;
 }
-.OrderDetails-title{
+
+.OrderType-label {
+  font-weight: initial;
+  font-size: 20px;
+}
+
+.OrderDetails-title {
   font-weight: bold;
   font-size: 18px;
   padding: 5px;
 }
-.OrderBanner{
+
+.OrderBanner {
   margin-top: 20px;
   margin-left: 320px;
   width: 800px;
   height: 80px;
 }
-.Collapse{
+
+.Collapse {
   margin-left: 1100px;
   padding: 10px;
   background-color: darkred;
 }
-.Collapse:hover{
+
+.Collapse:hover {
   background-color: rgb(170, 23, 23);
 }
-.OrderStatus{
+
+.OrderStatus {
   background-color: #4CAF50;
   border: none;
   color: white;
@@ -71,6 +78,6 @@ font-size: 20px;
   font-size: 16px;
 }
 
-.UnDeliver_button{
+.UnDeliver_button {
   background-color: #f44336;
 }

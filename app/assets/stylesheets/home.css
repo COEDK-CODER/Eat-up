@@ -1,42 +1,43 @@
-body{
+body {
   background-color: rgb(235, 240, 245);
-
-
-
 }
-.Cafeteria-authenticate{
+
+.Cafeteria-authenticate {
   font-size: 20px;
   color: currentColor;
   margin-top: 10px;
   margin-left: 20px;
   color: slateblue;
 }
-.Cafeteria{
+
+.Cafeteria {
   width: max-content;
   font-family: sans-serif;
   margin: auto;
-
 }
-.Cafeteria-logo{
+
+.Cafeteria-logo {
   width: 100px;
-
   margin-left: 300px;
+}
 
-}
-.Cafeteria-title{
+.Cafeteria-title {
   font-size: 45px;
-margin: 15px;
-padding: 10px;
+  margin: 15px;
+  padding: 10px;
 }
-.Cafeteria-header-line{
+
+.Cafeteria-header-line {
   height: 1px;
-background: brown;
+  background: brown;
   margin: auto;
 }
-.Cafeteria-header{
+
+.Cafeteria-header {
   display: flex;
   background-color: antiquewhite;
-  color:brown;
+  color: brown;
 }
-.Cafeteria-footer{
-  }
+
+.Cafeteria-footer {
+}

@@ -2,17 +2,17 @@
   font-family: sans-serif;
   margin-top: 35px;
   padding: 20px;
-background-color: antiquewhite;
-border-radius: 10px;
+  background-color: antiquewhite;
+  border-radius: 10px;
 }
 
-.User-credentials{
+.User-credentials {
   font-size: 25px;
   width: 260px;
-
   padding: 5px 178px;
   margin: 10px 0px;
 }
+
 .NewUsers-title {
   font-size: 35px;
   padding-bottom: 30px;
@@ -27,7 +27,8 @@ border-radius: 10px;
 .Form-section {
   padding-bottom: 15px;
 }
-.Form-section-authenticate{
+
+.Form-section-authenticate {
   padding-bottom: 15px;
   display: flex;
 }
@@ -49,16 +50,17 @@ border-radius: 10px;
   border-radius: 4px;
   border: none;
 }
+
 .Gender-options {
   display: flex;
 }
-.Account{
+
+.Account {
   background-color: antiquewhite;
   margin: 80px 500px;
   padding: 30px;
   border-radius: 18px;
 }
-
 
 .Details-label {
   display: inline-block;
@@ -66,28 +68,26 @@ border-radius: 10px;
   color: brown;
   font-weight: bold;
   font-size: 20px;
-
 }
 
-.Details-input{
-font-size: 18px;
-
-border-radius: 4px;
-padding: 2px 8px;
-
-display: inline-block;
-border: 1px solid #ccc;
-border-radius: 4px;
-
+.Details-input {
+  font-size: 18px;
+  border-radius: 4px;
+  padding: 2px 8px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
-.Details-item{
+
+.Details-item {
   margin-top: 20px;
   display: flex;
   align-items: baseline;
 }
-.Flash-error{
+
+.Flash-error {
   font-family: sans-serif;
-  border-radius:  5px;
+  border-radius: 5px;
   font-size: 20px;
   margin: auto;
   width: max-content;
@@ -95,10 +95,11 @@ border-radius: 4px;
   background-color: #f44336;
   color: white;
 }
-.Flash-notice{
+
+.Flash-notice {
   background-color: #4CAF50;
   font-family: sans-serif;
-  border-radius:  5px;
+  border-radius: 5px;
   font-size: 20px;
   margin: 0px;
   height: 25px;
