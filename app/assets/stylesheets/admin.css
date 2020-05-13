@@ -71,17 +71,26 @@ height: 300px;
     }
     .DashBoard-section-title{
         margin-bottom: 10px;
-        color: darkred;
         font-weight: bold;
+        font-size: 18px;
+        padding: 5px;
+
     }
 .Invoice-date{
   margin-top: 20px;
   display: flex;
   align-items: baseline;
 margin-left: 30px;
+
 }
 .Invoice-section{
 width: 1210px;
 }
-input[type="date"]::-webkit-inner-spin-button,
-input[type="date"]::-webkit-clear-button { display: none; }
+.Date{
+  background: #FFFFFF;
+    border: 1px solid #BFB8CC;
+    border-radius: 4px;
+    color: #726A7E;
+    margin-right: 11px;
+    padding: 2px 2px;
+}
