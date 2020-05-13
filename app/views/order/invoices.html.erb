@@ -26,8 +26,11 @@
     </tr>
 	</thead>
 	<tbody>
+
   <% if @orders %>
+
   <% if !(Order.valid_date(@from_date,@to_date))%>
+
   <% @orders.order(:id).each_with_index do |order,i|%>
     <tr>
     	<td>ORD-<%= order.id%></td>

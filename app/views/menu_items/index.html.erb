@@ -1,0 +1,39 @@
+<h1 class="Admin-title">Sales Report</h1>
+<div class="Dash-items">
+<%= render partial: "dash-section"%>
+
+<%= form_with(url: "/menu_items", method: "get") do %>
+<p>From Date</p>
+<%= date_field_tag('from_date',@from_date,class: "Date")%>
+<p>To Date</p>
+<%= date_field_tag 'to_date',@to_date,class: "Date"%>
+<input type="button", value="Get", Onclick="this.form.submit()" >
+<% end%>
+<table class="OrderCart">
+	<thead>
+    <tr>
+      <th>S No.</th>
+      <th>Order Item</th>
+      <th>Quantity Sold</th>
+    </tr>
+	</thead>
+	<tbody>
+<% if @orders %>
+    <% if !(Order.valid_date(@from_date,@to_date))%>
+  <% if @orders.count >0%>
+        <% orderitems = OrderItem.where("order_id >= ? and order_id <= ?",@orders.first.id,@orders.last.id).group(:menu_item_name).order(:menu_item_name).sum(:quantity) %>
+        <% orderitems = orderitems.sort_by{|key,value| -value } %>
+        <% orderitems.each_with_index do |order_item,i| %>
+          <tr>
+            <td><%= i+1%></td>
+            <td><%= order_item[0] %></td>
+            <td><%= order_item[1] %></td>
+          </tr>
+
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+</div>
