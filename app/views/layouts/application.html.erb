@@ -30,7 +30,7 @@
     <%= content_tag('i', nil, class: 'fa fa-user') %> My account
     <% end %>
 
-    <p class="User-credentials"> Hello <%= @current_user.first_name%>!</p>
+    <p class="User-credentials"> Hello, <%= @current_user.first_name%>!</p>
      <%= link_to(cart_items_path,class: 'MenuBar-button') do %>
     <%= content_tag('i', nil, class: 'fa fa-shopping-bag') %> View Cart
     <% end %>
