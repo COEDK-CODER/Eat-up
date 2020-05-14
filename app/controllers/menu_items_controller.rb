@@ -48,12 +48,13 @@ class MenuItemsController < ApplicationController
 
   def update
     menu_item = MenuItem.find(params[:id])
+    menu_id = menu_item.menu_id
     menu_item.menu_item = params[:menu_item]
     menu_item.menu_id = params[:menu_id]
     menu_item.price = params[:price]
     if menu_item.save
       menu_item.save!
-      redirect_to "/menu"
+      redirect_to "/menu##{Menu.find(menu_id).menu_name}"
     else
       flash[:error] = menu_item.errors.full_messages.join(",")
       redirect_to edit_menu_item_path(id: params[:id])
