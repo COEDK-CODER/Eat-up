@@ -2,42 +2,35 @@
 <h1 class="Admin-title">Manage Orders</h1>
 <div class="Dash-items">
 <%= render partial: "dash-section"%>
-<table class="OrderCart">
-
-	<thead>
-	<tr>
-			<th>Order-Id</th>
-		<th>Customer Name</th>
-
-		<th>Amount</th>
-		<th>Status</th>
-	<th>Action</th>
-	</tr>
-	</thead>
-	<tbody>
-	<% if @orders %>
-	<tr>
-			<% if @orders.not_delivered.count >0 %>
-			 	<th>----></th>
-				 <th>Pending Orders </th>
-				 <th><----</th>
-				 <% end %>
+	<table class="OrderCart">
+		<thead>
+			<tr>
+				<th>Order-Id</th>
+				<th>Customer Name</th>
+				<th>Amount</th>
+				<th>Status</th>
+				<th>Action</th>
 			</tr>
-		 <%= render partial: "row-section" , locals: { orders: @orders.not_delivered ,status: "Delivered",style: "OrderStatus UnDeliver_button",state: true}%>
- 			<tr>
-			 	<% if @orders.delivered.count >0 %>
-			 	<th>----></th>
-				 <th>Completed Orders </th>
-				 <th><----</th>
-				 <% end %>
-			</tr>
- <%= render partial: "row-section" , locals: { orders: @orders.delivered ,status: "Not Delivered",style: "OrderStatus",state: nil}%>
-
-		 <% end%>
-		 	</tbody>
-
-
-</table>
-
-
+		</thead>
+		<tbody>
+			<% if @orders %>
+				<tr>
+					<% if @orders.not_delivered.count >0 %>
+			 			<th>----></th>
+				 		<th>Pending Orders </th>
+				 		<th><----</th>
+					<% end %>
+				</tr>
+		 		<%= render partial: "row-section" , locals: { orders: @orders.not_delivered ,status: "Delivered",style: "OrderStatus UnDeliver_button",state: true}%>
+ 				<tr>
+			 		<% if @orders.delivered.count >0 %>
+			 			<th>----></th>
+				 		<th>Completed Orders </th>
+						<th><----</th>
+					<% end %>
+				</tr>
+ 				<%= render partial: "row-section" , locals: { orders: @orders.delivered ,status: "Not Delivered",style: "OrderStatus",state: nil}%>
+			<% end%>
+		</tbody>
+	</table>
 </div>

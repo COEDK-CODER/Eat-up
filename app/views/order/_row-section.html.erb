@@ -1,24 +1,17 @@
-
-	<% orders.each_with_index do |order,i|%>
+<% orders.each_with_index do |order,i|%>
 	<tr>
-<td> ORD-<%= order.id%></td>
-
+		<td> ORD-<%= order.id%></td>
 		<td> <%= order.user.first_name%> </td>
-
 		<td><%= order.amount%></td>
     <td>
-
-
-       <%= link_to(order_path(id: order.id,state: state),class: style,method: :put) do %>
-    <%= content_tag('i', nil, class: 'fa fa-check') %>Mark as <%= status%>
-    <% end %>
-
-
-		 </td>
-		<td><%= link_to(order_path(order.id),class: 'Menu-button TrashIcon') do %>
-    <%= content_tag('i', nil, class: 'fa fa-external-link') %> Expand
-    <% end %>
+      <%= link_to(order_path(id: order.id,state: state),class: style,method: :put) do %>
+    		<%= content_tag('i', nil, class: 'fa fa-check') %>Mark as <%= status%>
+    	<% end %>
+		</td>
+		<td>
+			<%= link_to(order_path(order.id),class: 'Menu-button TrashIcon') do %>
+    		<%= content_tag('i', nil, class: 'fa fa-external-link') %> Expand
+    	<% end %>
     </td>
-
 	</tr>
-	<%end%>
+<%end%>

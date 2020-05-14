@@ -1,39 +1,31 @@
-
-
-  <h1 class="MenuPageTitle">Edit Menu Item</h1>
-
-  <section class="Account">
-    <ul>
+<h1 class="MenuPageTitle">Edit Menu Item</h1>
+<section class="Account">
+  <ul>
     <%= form_with(url: "/menu_items/#{@menu_item.id}", method: "put") do %>
-    <li class="Details-item">
+      <li class="Details-item">
         <label class="Details-label">MenuItem Id :</label>
         <input name="User_name" value="<%=@menu_item.id%>" disabled>
       </li>
-
       <li class="Details-item">
         <label class="Details-label">Item Name :</label>
-
         <%=text_field_tag 'menu_item', "#{@menu_item.menu_item}",  minlength: 3, autofocus: true%>
       </li>
-
       <li class="Details-item">
-      <label class="Details-label">Menu Type :</label>
-        <select name="menu_id">
-          <option value="<%= @menu_item.menu_id %>"><%= Menu.find(@menu_item.menu_id).menu_name%></option>
-          <% Menu.all.each do |menu| %>
-            <% if menu.id!=@menu_item.menu_id %>
-            <option value="<%= menu.id %>"><%= menu.menu_name %></option>
-            <% end %>
-          <% end %>
-        </select>
+        <label class="Details-label">Menu Type :</label>
+          <select name="menu_id">
+            <option value="<%= @menu_item.menu_id %>"><%= Menu.find(@menu_item.menu_id).menu_name%></option>
+              <% Menu.all.each do |menu| %>
+                <% if menu.id!=@menu_item.menu_id %>
+                  <option value="<%= menu.id %>"><%= menu.menu_name %></option>
+                <% end %>
+              <% end %>
+          </select>
       </li>
       <li class="Details-item">
         <label class="Details-label">Price :</label>
-<%= number_field_tag :price, "#{@menu_item.price}",min: 1%>
-
+        <%= number_field_tag :price, "#{@menu_item.price}",min: 1%>
       </li>
-
-    <%= submit_tag "Update" , class: "MenuBar-button ",data: {disable_with: "updating.."}%>
- <% end %>
-    </ul>
-  </section>
+      <%= submit_tag "Update" , class: "MenuBar-button ",data: {disable_with: "updating.."}%>
+    <% end %>
+  </ul>
+</section>

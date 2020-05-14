@@ -1,49 +1,49 @@
 <section class="MenuSection">
-<div class="MenuSection-header">
-  <h1 id="<%= section_title %>" class="MenuSection-title"> <%= section_title %> </h1>
-  <% if @current_user.role.eql?("owner")%>
- <%= link_to(edit_menu_path(id)) do %>
-                     <%= content_tag('i', nil, class: 'fa fa-pencil-square-o') %>
-                <% end %>
-                <% end %>
-                </div>
-    <ul class="MenuItem">
-      <% menu_items.each do |menu_item| %>
-        <li class="MenuItem-list">
-           <label class="MenuItem-container">
-              <%= menu_item.menu_item %>
-              <p class="MenuItem-price"> Rs. <%=menu_item.price %></p>
-              <% qty=nil%>
-              <% qty=@cart_item.quantity(menu_item.id)%>
-              <% id=@cart_item.cart_id(menu_item.id)%>
-               <%  if qty %>
-              <%= button_to "-",cart_item_path(id: id ),method: "put",class: "CounterButton-minus",data: {disable_with: "-"} %>
-                <%=text_field_tag nil, qty, disabled: true,class: "MenuItem-quantity"%>
-                <%= button_to "+",cart_item_path(id: id,state: true),
+  <div class="MenuSection-header">
+    <h1 id="<%= section_title %>" class="MenuSection-title"> <%= section_title %> </h1>
+    <% if @current_user.role.eql?("owner")%>
+      <%= link_to(edit_menu_path(id)) do %>
+        <%= content_tag('i', nil, class: 'fa fa-pencil-square-o') %>
+      <% end %>
+    <% end %>
+  </div>
+  <ul class="MenuItem">
+    <% menu_items.each do |menu_item| %>
+      <li class="MenuItem-list">
+        <label class="MenuItem-container">
+          <%= menu_item.menu_item %>
+          <p class="MenuItem-price"> Rs. <%=menu_item.price %></p>
+          <% qty=nil%>
+          <% qty=@cart_item.quantity(menu_item.id)%>
+          <% id=@cart_item.cart_id(menu_item.id)%>
+          <%  if qty %>
+            <%= button_to "-",cart_item_path(id: id ),
+                              method: "put",
+                              class: "CounterButton-minus",
+                              data: {disable_with: "-"} %>
+              <%=text_field_tag nil, qty, disabled: true,class: "MenuItem-quantity"%>
+              <%= button_to "+",cart_item_path(id: id,state: true),
                                               method: "put",
                                               class: "CounterButton-plus",
                                               data: {disable_with: "+"} %>
-
-             <% else%>
-
-            <%= button_to "Add",cart_items_path(menu_item_id: menu_item.id , menu_item: menu_item.menu_item,
+          <% else%>
+            <%= button_to "Add",cart_items_path(menu_item_id: menu_item.id ,
+                                              menu_item: menu_item.menu_item,
                                               price: menu_item.price),
                                               method: "post",
                                               class: "AddButton",
                                               data: {disable_with: "Adding to cart"} %>
-              <% if @current_user.role.eql?("owner")%>
-                <%= link_to(edit_menu_item_path(id: menu_item.id),class: 'AddButton') do %>
-                     <%= content_tag('i', nil, class: 'fa fa-pencil') %>
-                <% end %>
-                <%= link_to(menu_item_path(id: menu_item.id),class: 'AddButton',method: :delete) do %>
-                     <%= content_tag('i', nil, class: 'fa fa-trash') %>
-                <% end %>
-               <% end%>
-
-             <% end %>
-
-          </label>
+            <% if @current_user.role.eql?("owner")%>
+              <%= link_to(edit_menu_item_path(id: menu_item.id),class: 'AddButton') do %>
+                <%= content_tag('i', nil, class: 'fa fa-pencil') %>
+              <% end %>
+              <%= link_to(menu_item_path(id: menu_item.id),class: 'AddButton',method: :delete) do %>
+                <%= content_tag('i', nil, class: 'fa fa-trash') %>
+              <% end %>
+              <% end%>
+          <% end %>
+        </label>
       </li>
-   <% end %>
+    <% end %>
   </ul>
 </section>

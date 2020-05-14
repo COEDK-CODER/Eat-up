@@ -1,86 +1,75 @@
 <% amount=0 %>
 <h1 class="MenuPageTitle">Cart</h1>
-
 <% if @cart_item.count !=0 %>
-
-
-
-<table class="OrderCart">
-	<thead>
-		<tr>
-			<th>S No.</th>
-			<th>Items</th>
-			<th>Rate</th>
-			<th>Quantity</th>
-			<th>Total</th>
-			<th>action</th>
-		</tr>
-	</thead>
-	<tbody>
-	<% @cart_item.order(id: :desc).each_with_index do |cart_item,i|%>
-		<tr>
-			<td><%= i+1	 %> </td>
-			<td> <%= cart_item.cart_item%> </td>
-			<td> <%= cart_item.cart_item_price%> </td>
-			<td>
-			<div>
-<%= link_to(cart_item_path(id: cart_item.id,from: "cart"),method: :put,class: "subract",data: {disable_with: "-"}) do %>
-    <%= content_tag('i', nil, class: 'fa fa-minus-circle') %>
-    <% end %>
-
-<%=text_field_tag nil, cart_item.item_quantity, disabled: true,class: "MenuItem-quantity"%>
-
-    <%= link_to(cart_item_path(id: cart_item.id, state: true,from: "cart"),method: :put,class: "add",data: {disable_with: "+"}) do %>
-    <%= content_tag('i', nil, class: 'fa fa-plus-circle') %>
-    <% end %>
-
-</div>
-			</td>
-			<% total =cart_item.item_quantity * cart_item.cart_item_price %>
-			<% amount+=total%>
-			<td> <%=total%> </td>
-			<td>
-
-				<%= link_to(cart_item_path(cart_item.id),class: 'Menu-button TrashIcon',method: :delete) do %>
-    <%= content_tag('i', nil, class: 'fa fa-trash') %> Remove
-    <% end %>
-			</td>
-		</tr>
-	<% end %>
-	</tbody>
-</table>
-<%= link_to(menu_index_path,class: 'Menu-button Add_more') do %>
-    <%= content_tag('i', nil, class: 'fa fa-cutlery') %> Add more
-    <% end %>
-
-		    <%= link_to(destroy_cart_path,class: 'Menu-button Clear_cart',method: :delete) do %>
+	<table class="OrderCart">
+		<thead>
+			<tr>
+				<th>S No.</th>
+				<th>Items</th>
+				<th>Rate</th>
+				<th>Quantity</th>
+				<th>Total</th>
+				<th>action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @cart_item.order(id: :desc).each_with_index do |cart_item,i|%>
+				<tr>
+					<td><%= i+1	 %> </td>
+					<td> <%= cart_item.cart_item%> </td>
+					<td> <%= cart_item.cart_item_price%> </td>
+					<td>
+						<div>
+							<%= link_to(cart_item_path(id: cart_item.id,from: "cart"),
+													method: :put,class: "subract",data: {disable_with: "-"}) do %>
+    						<%= content_tag('i', nil, class: 'fa fa-minus-circle') %>
+    					<% end %>
+							<%=text_field_tag nil, cart_item.item_quantity, disabled: true,class: "MenuItem-quantity"%>
+							<%= link_to(cart_item_path(id: cart_item.id, state: true,from: "cart"),
+													method: :put,class: "add",data: {disable_with: "+"}) do %>
+    						<%= content_tag('i', nil, class: 'fa fa-plus-circle') %>
+    					<% end %>
+						</div>
+					</td>
+					<% total =cart_item.item_quantity * cart_item.cart_item_price %>
+					<% amount+=total%>
+					<td> <%=total%> </td>
+					<td>
+						<%= link_to(cart_item_path(cart_item.id),class: 'Menu-button TrashIcon',method: :delete) do %>
+			    		<%= content_tag('i', nil, class: 'fa fa-trash') %> Remove
+    				<% end %>
+					</td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+	<%= link_to(menu_index_path,class: 'Menu-button Add_more') do %>
+  	<%= content_tag('i', nil, class: 'fa fa-cutlery') %> Add more
+  <% end %>
+  <%= link_to(destroy_cart_path,class: 'Menu-button Clear_cart',method: :delete) do %>
     <%= content_tag('i', nil, class: 'fa fa-times') %> Clear Cart
+  <% end %>
+	<%= form_with(url: "/order", method: "post") do%>
+		<input type="hidden" name="amount" value= "<%= amount %>" />
+		<section class="OrderDetails">
+  		<div class="OrderType" >
+  			<h2 class="OrderDetails-title" >Select Order Type:</h2>
+    			<select id="Payment-type" name="order_type">
+						<option value="Delivery">Delivery</option>
+   		 			<option value="Dine-In">Dine-In</option>
+   		 			<option value="Pick-up">Pick-up</option>
+ 		 			</select>
+ 	 		</div>
+			<h2 class="OrderDetails-title" >SUBTOTAL: </h2>
+			<p class="MenuItem-price" style="font-weight:bold;"> Rs. <%=amount %> /-</p>
+		</section>
+		<input  class="OrderButton cart_view" type="submit" value="Confirm Order" >
+	<% end %>
+	<% else %>
+		<div>
+			<%= image_tag("cart-banner.jpg",class: "Cart-banner") %>
+		</div>
+		<%= link_to(menu_index_path,class: 'Menu-button cart_view') do %>
+    	<%= content_tag('i', nil, class: 'fa fa-cutlery') %> Explore Menu
     <% end %>
-<%= form_with(url: "/order", method: "post") do%>
-<input type="hidden" name="amount" value= "<%= amount %>" />
-<section class="OrderDetails">
-  <div class="OrderType" >
-  	<h2 class="OrderDetails-title" >Select Order Type:</h2>
-    	<select id="Payment-type" name="order_type">
-			<option value="Delivery">Delivery</option>
-   		 <option value="Dine-In">Dine-In</option>
-   		 <option value="Pick-up">Pick-up</option>
- 		 </select>
- 	 </div>
-<h2 class="OrderDetails-title" >SUBTOTAL: </h2>
-<p class="MenuItem-price" style="font-weight:bold;"> Rs. <%=amount %> /-</p>
-</section>
-<input  class="OrderButton cart_view" type="submit" value="Confirm Order" >
-
-<% end %>
-<% else %>
-
-<div>
-
-<%= image_tag("cart-banner.jpg",class: "Cart-banner") %>
-
-</div>
-<%= link_to(menu_index_path,class: 'Menu-button cart_view') do %>
-    <%= content_tag('i', nil, class: 'fa fa-cutlery') %> Explore Menu
-    <% end %>
-<% end%>
+	<% end%>

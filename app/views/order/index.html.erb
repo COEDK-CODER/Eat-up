@@ -1,40 +1,33 @@
-
-
-  <h1 class="MenuPageTitle">My Orders</h1>
+<h1 class="MenuPageTitle">My Orders</h1>
 <table class="OrderCart">
-
 	<thead>
-	<tr>
-		<th>S No.</th>
-		<th>Date</th>
-		<th>Order-Id</th>
-		<th>Amount</th>
-		<th>Status</th>
-	<th>Action</th>
-	</tr>
+		<tr>
+			<th>S No.</th>
+			<th>Date</th>
+			<th>Order-Id</th>
+			<th>Amount</th>
+			<th>Status</th>
+			<th>Action</th>
+		</tr>
 	</thead>
 	<tbody>
-	<% @current_user.orders.order(id: :desc).each_with_index do |order,i|%>
-	<tr>
-
-		<td><%= i+1%></td>
-		<td> <%= order.order_date%> </td>
-		<td> EATORD<%= order.id%></td>
-		<td><%= order.amount%></td>
-    <td>
-		<p class="OrderStatus <% if order.order_status=="Not Delivered"%>  UnDeliver_button <% end %>">
-		 <%= order.order_status%></td>
-		 </p>
-		<td>
-
-
-		<%= link_to(order_path(order.id),class: 'Menu-button TrashIcon') do %>
-    <%= content_tag('i', nil, class: 'fa fa-external-link') %> Expand
-    <% end %>
-
-		</td>
-	</tr>
-	<%end%>
+		<% @current_user.orders.order(id: :desc).each_with_index do |order,i|%>
+			<tr>
+				<td><%= i+1%></td>
+				<td> <%= order.order_date%> </td>
+				<td> EATORD<%= order.id%></td>
+				<td><%= order.amount%></td>
+    		<td>
+					<p class="OrderStatus <% if order.order_status=="Not Delivered"%>  UnDeliver_button <% end %>">
+		 			<%= order.order_status%></p>
+				</td>
+				<td>
+					<%= link_to(order_path(order.id),class: 'Menu-button TrashIcon') do %>
+    				<%= content_tag('i', nil, class: 'fa fa-external-link') %> Expand
+    			<% end %>
+				</td>
+			</tr>
+		<%end%>
 	</tbody>
 </table>
 <img src="order.png" alt="Order" class="OrderBanner">

@@ -1,39 +1,38 @@
 <h1 class="Admin-title">Sales Report</h1>
 <div class="Dash-items">
-<%= render partial: "dash-section"%>
-<div class="Invoice-section">
-<%= form_with(url: "/menu_items", method: "get") do %>
-<section class="Invoice-date">
-    <p class="DashBoard-section-title">From Date :-</p>
-    <%= date_field_tag('from_date',@from_date, max: Date.today,class: "Date")%>
-
-    <p class="DashBoard-section-title" >To Date :-</p>
-    <%= date_field_tag('to_date',@to_date, max: Date.today ,class: "Date")%>
-    <input type="button", value="Get", Onclick="this.form.submit()" >
-    </section>
+  <%= render partial: "dash-section"%>
+  <div class="Invoice-section">
+    <%= form_with(url: "/menu_items", method: "get") do %>
+      <section class="Invoice-date">
+        <p class="DashBoard-section-title">From Date :-</p>
+        <%= date_field_tag('from_date',@from_date, max: Date.today,class: "Date")%>
+        <p class="DashBoard-section-title" >To Date :-</p>
+        <%= date_field_tag('to_date',@to_date, max: Date.today ,class: "Date")%>
+        <input type="button", value="Get", Onclick="this.form.submit()" >
+      </section>
     <% end%>
     <section class="ManageMenu-section">
-<table class="OrderCart">
-	<thead>
-    <tr>
-      <th>S No.</th>
-      <th>Menu Item</th>
-      <th>Quantity Sold</th>
-    </tr>
-	</thead>
-	<tbody>
-<% if @orders and @orderitems %>
-        <% @orderitems = @orderitems.sort_by{|key,value| -value } %>
-        <% @orderitems.each_with_index do |order_item,i| %>
+      <table class="OrderCart">
+	      <thead>
           <tr>
-            <td><%= i+1%></td>
-            <td><%= order_item[0] %></td>
-            <td><%= order_item[1] %></td>
+            <th>S No.</th>
+            <th>Menu Item</th>
+            <th>Quantity Sold</th>
           </tr>
-      <% end %>
-    <% end %>
-  </tbody>
-</table>
-</section>
-</div>
+	      </thead>
+	      <tbody>
+          <% if @orders and @orderitems %>
+            <% @orderitems = @orderitems.sort_by{|key,value| -value } %>
+            <% @orderitems.each_with_index do |order_item,i| %>
+              <tr>
+                <td><%= i+1%></td>
+                <td><%= order_item[0] %></td>
+                <td><%= order_item[1] %></td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </section>
+  </div>
 </div>

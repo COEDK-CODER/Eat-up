@@ -1,24 +1,16 @@
-
-
-  <h1 class="MenuPageTitle">Edit Menu</h1>
-
-  <section class="Account">
-    <ul>
+<h1 class="MenuPageTitle">Edit Menu</h1>
+<section class="Account">
+  <ul>
     <%= form_with(url: "/menu/#{@menu.id}", method: "put") do %>
-    <li class="Details-item">
+      <li class="Details-item">
         <label class="Details-label">Menu Id :</label>
         <input  value="<%=@menu.id%>" disabled>
       </li>
-
       <li class="Details-item">
         <label class="Details-label">Menu Name :</label>
-
-<%=text_field_tag 'menu_name', "#{@menu.menu_name}",  minlength: 3, autofocus: true%>
+        <%=text_field_tag 'menu_name', "#{@menu.menu_name}",  minlength: 3, autofocus: true%>
       </li>
-
-
-
-    <%= submit_tag "Update" , class: "MenuBar-button ",data: {disable_with: "updating.."}%>
- <% end %>
-    </ul>
-  </section>
+      <%= submit_tag "Update" , class: "MenuBar-button ",data: {disable_with: "updating.."}%>
+    <% end %>
+  </ul>
+</section>

@@ -1,30 +1,26 @@
-  <h1 class="MenuPageTitle">Order Details</h1>
-
+<h1 class="MenuPageTitle">Order Details</h1>
 <table class="OrderCart">
 	<thead>
-	<tr>
-		<th>S No.</th>
-		<th>Items</th>
-		<th>Price</th>
-		<th>Quantity</th>
-		<th>Total</th>
-
-	</tr>
-
+		<tr>
+			<th>S No.</th>
+			<th>Items</th>
+			<th>Price</th>
+			<th>Quantity</th>
+			<th>Total</th>
+		</tr>
 	</thead>
 	<tbody>
-	<% @order.order_items.each_with_index do |order_item,i|%>
-	<tr>
-		<td> <%= i+1	 %> </td>
-		<td> <%= order_item.menu_item_name%> </td>
-		<td> <%= order_item.menu_item_price%> </td>
-		<td> <%= order_item.quantity %> </td>
-		<td> <%= order_item.menu_item_price * order_item.quantity %> </td>
-	</tr>
-	<% end %>
+		<% @order.order_items.each_with_index do |order_item,i|%>
+			<tr>
+				<td> <%= i+1	 %> </td>
+				<td> <%= order_item.menu_item_name%> </td>
+				<td> <%= order_item.menu_item_price%> </td>
+				<td> <%= order_item.quantity %> </td>
+				<td> <%= order_item.menu_item_price * order_item.quantity %> </td>
+			</tr>
+		<% end %>
 	</tbody>
 </table>
 <%= link_to(:back,class: 'Menu-button  Collapse') do %>
-
-    <%= content_tag('i', nil, class: 'fa fa-compress') %> Collapse
-    <% end %>
+  <%= content_tag('i', nil, class: 'fa fa-compress') %> Collapse
+<% end %>

@@ -1,28 +1,26 @@
-
 <article class="MenuPage" >
   <h1 class="MenuPageTitle">MENU</h1>
-<div class="MenuContent">
-<% if @current_user.role=="owner"%>
-<div>
-  <%= render partial: "dash-section"%>
-   <%= image_tag("food.jpg",class: "MenuContent-image") %>
-   </div>
-  <%else%>
-  <%= image_tag("food.jpg",class: "MenuContent-image") %>
-  <% end%>
-  <div>
-    <% @menu.each do |menu| %>
-    <div class="Menu">
-    <% if menu[0]%>
-      <%= render partial: "menu-section" ,locals:{id: menu[0].id,section_title: menu[0].menu_name , menu_items: MenuItem.menu_items(menu[0].id) }%>
+  <div class="MenuContent">
+    <% if @current_user.role=="owner"%>
+      <div>
+        <%= render partial: "dash-section"%>
+        <%= image_tag("food.jpg",class: "MenuContent-image") %>
+      </div>
+    <%else%>
+      <%= image_tag("food.jpg",class: "MenuContent-image") %>
+    <% end%>
+    <div>
+      <% @menu.each do |menu| %>
+        <div class="Menu">
+          <% if menu[0]%>
+            <%= render partial: "menu-section" ,locals:{id: menu[0].id,section_title: menu[0].menu_name , menu_items: MenuItem.menu_items(menu[0].id) }%>
+          <% end %>
+          <% if menu[1] %>
+            <%= render partial: "menu-section" ,locals:{id: menu[1].id,  section_title: menu[1].menu_name , menu_items: MenuItem.menu_items(menu[1].id) }%>
+          <%end %>
+        </div>
       <% end %>
-      <% if menu[1] %>
-        <%= render partial: "menu-section" ,locals:{id: menu[1].id,  section_title: menu[1].menu_name , menu_items: MenuItem.menu_items(menu[1].id) }%>
-      <%end %>
-
+      <%= button_to "Go to Cart","/cart_items",method: "get",class: "CartButton cart_view"%>
     </div>
-    <% end %>
-    <%= button_to "Go to Cart","/cart_items",method: "get",class: "CartButton cart_view"%>
   </div>
-</div>
 </article>

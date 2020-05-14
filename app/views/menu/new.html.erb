@@ -3,42 +3,41 @@
   <%= render partial: "dash-section"%>
     <div class="ManageMenu">
       <section class="ManageMenu-section">
-      <%=form_with url: menu_index_path do |form| %>
-        <div class="Form-section">
-          <p class="Form-section-label">New Menu</p>
-          <%= form.text_field :menu_name , class: "Form-section-input" ,placeholder: "New Menu Name",minlength: 3, autofocus: true%>
-        </div>
-        <div class="Form-section">
-          <%= form.submit "Add Menu" , class: "Form-section-submit ",data: {disable_with: "Menu is creating.."}%>
-        </div>
-      <%end%>
+        <%=form_with url: menu_index_path do |form| %>
+          <div class="Form-section">
+            <p class="Form-section-label">New Menu</p>
+            <%= form.text_field :menu_name , class: "Form-section-input" ,placeholder: "New Menu Name",minlength: 3, autofocus: true%>
+          </div>
+          <div class="Form-section">
+            <%= form.submit "Add Menu" , class: "Form-section-submit ",data: {disable_with: "Menu is creating.."}%>
+          </div>
+        <%end%>
       </section>
       <section class="ManageMenu-section">
-      <%=form_with url: menu_items_path do |form| %>
-        <div class="Form-section ">
-          <p class="Form-section-label">New Menu Item</p>
-          <%= form.text_field :menu_item , class: "Form-section-input" ,placeholder: "New Menu Item Name",minlength: 3, autofocus: true  %>
-        </div>
-        <div class="Form-section Price">
-          <p class="Form-section-label">Price</p>
-          <%= form.number_field :price, min: 1,placeholder: "price",class: "Form-section-input"%>
-        </div>
-        <div class="Form-section ">
-          <p class="Form-section-label">Menu Type</p>
-           <select name="menu_id" class= "Form-section-input">
-             <% Menu.all.each do |menu| %>
-              <option value="<%= menu.id %>"><%= menu.menu_name %></option>
-             <% end %>
+        <%=form_with url: menu_items_path do |form| %>
+          <div class="Form-section ">
+            <p class="Form-section-label">New Menu Item</p>
+            <%= form.text_field :menu_item , class: "Form-section-input" ,placeholder: "New Menu Item Name",minlength: 3, autofocus: true  %>
+          </div>
+          <div class="Form-section Price">
+            <p class="Form-section-label">Price</p>
+            <%= form.number_field :price, min: 1,placeholder: "price",class: "Form-section-input"%>
+          </div>
+          <div class="Form-section ">
+            <p class="Form-section-label">Menu Type</p>
+            <select name="menu_id" class= "Form-section-input">
+              <% Menu.all.each do |menu| %>
+                <option value="<%= menu.id %>"><%= menu.menu_name %></option>
+              <% end %>
             </select>
-        </div>
-        <div>
-          <%= form.submit "Add Menu Item" , class: "Form-section-submit ",data: {disable_with: "Menu Item is creating.."}%>
-        </div>
-      <%end%>
+          </div>
+          <div>
+            <%= form.submit "Add Menu Item" , class: "Form-section-submit ",data: {disable_with: "Menu Item is creating.."}%>
+          </div>
+        <%end%>
       </section>
-</div>
-<% if flash[:notice] %>
-    <p class="Flash-notice"> <%= flash[:notice]%></p>
-  <% end %>
-
+    </div>
+    <% if flash[:notice] %>
+      <p class="Flash-notice"> <%= flash[:notice]%></p>
+    <% end %>
 </div>
