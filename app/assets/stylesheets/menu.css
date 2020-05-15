@@ -84,7 +84,8 @@
 }
 
 .MenuItem-list:hover {
-  background-color: rgb(194, 243, 243);
+  background-color: #c6e4f4;
+
 }
 
 .MenuItem-list:hover .AddButton {
