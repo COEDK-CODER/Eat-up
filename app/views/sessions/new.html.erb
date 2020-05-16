@@ -11,8 +11,12 @@
         <%= form.password_field :password , class: "Form-section-input",placeholder: "Password"%>
       </div>
       <div class="Form-section-authenticate">
-        <%= form.submit "Sign-in!" , class: "Form-section-submit"%>
-        <p class="Cafeteria-authenticate"> <%= link_to "New User?",new_user_path%> </p>
+      <%= button_tag(type: "submit", class: "Form-section-submit") do %>
+        <%= content_tag('i', nil, class: 'fa fa-sign-in') %> Sign- in!
+      <% end %>
+
+        <%= link_to "New User?",new_user_path,class: 'Cafeteria-authenticate'%>
+
       </div>
     <%end%>
   </section>

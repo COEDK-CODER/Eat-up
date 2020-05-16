@@ -41,6 +41,7 @@ class UsersController < ApplicationController
   def update
     user = User.find(params[:id])
     user.first_name = params[:first_name]
+    user.phone_number = params[:phone_number]
     if params[:password]
       user.password = params[:password]
     end

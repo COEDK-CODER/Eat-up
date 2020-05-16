@@ -4,10 +4,11 @@ body {
 
 .Cafeteria-authenticate {
   font-size: 20px;
-  color: currentColor;
+
   margin-top: 10px;
   margin-left: 20px;
   color: slateblue;
+  text-decoration: none;
 }
 
 .Cafeteria {

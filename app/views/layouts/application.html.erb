@@ -2,7 +2,7 @@
 <html>
   <head>
 
-    <link rel="icon" href='/logo1.png'/>
+    <link rel="icon" href='/icon.png'/>
     <title>Eat-Up Cafeteria</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -12,7 +12,7 @@
 
   </head>
 
-  <body >
+  <body>
   <div class="Cafeteria-header">
     <%= image_tag("logo.png",class: "Cafeteria-logo") %>
     <h1 class="Cafeteria-title ">Welcome to EAT'UP Cafeteria</h1>
@@ -21,7 +21,7 @@
   <% if flash[:error] %>
     <p class="Flash-error"> <%= flash[:error]%></p>
   <% end %>
-  <div class="Cafeteria"  >
+  <div class="Cafeteria"   >
     <%if @current_user%>
       <div class="MenuBar">
         <%= link_to(menu_index_path,class: 'MenuBar-button') do %>

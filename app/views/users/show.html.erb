@@ -3,19 +3,20 @@
   <ul>
     <li class="Details-item">
       <label class="Details-label">Account Id :</label>
-      <input class="Details-input",name="User_name" value="EATUP<%= @user.id %>" disabled>
+      <input class="Details-input" value="EATUP<%= @user.id %>" disabled>
     </li>
     <li class="Details-item">
       <label class="Details-label">User Name :</label>
-      <input class="Details-input",name="User_name" value="<%= @user.first_name%>" disabled>
+      <input class="Details-input" value="<%= @user.first_name%>" disabled>
     </li>
     <li class="Details-item">
       <label class="Details-label">Contact no :</label>
-      <input class="Details-input",name="User_mobile" value="9550373013">
+
+       <input class="Details-input"  value="<%= @user.phone_number%>" pattern="[0-9]{10}" disabled>
     </li>
     <li class="Details-item">
       <label class="Details-label">Mail ID :</label>
-      <input class="Details-input",name="User_mail"  value="<%= @user.email %>" disabled>
+      <input class="Details-input" value="<%= @user.email %>" disabled>
     </li>
     <li class="Details-item">
       <%= link_to(edit_user_path(id: @user.id),class: 'MenuBar-button',  :onclick => 'alert("Note: Not neccessary to update the password")') do %>
