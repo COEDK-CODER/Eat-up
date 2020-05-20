@@ -16,6 +16,7 @@
   margin-right: 10px;
   font-size: 45px;
   color: chocolate;
+  font-family: cursive;
 }
 
 .MenuItem {
@@ -161,14 +162,14 @@ width: 350px;
 .MenuItem-manipulate {
   font-size: medium;
   display: inline-flex;
-  align-items: first baseline;
+
   justify-content: space-around;
 }
 .MenuItem-description{
   font-size: 14px;
   margin-left: 14px;
   display: flex;
-width: 156px;
+width: 162px;
 }
 .EditButton{
   background-color: darkred;
