@@ -166,7 +166,7 @@ align-items: center;
 }
 .MenuItem-description{
   font-size: 14px;
-
+width: 180px;
   display: flex;
 
 line-height: 1.2;
