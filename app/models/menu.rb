@@ -9,15 +9,6 @@ class Menu < ActiveRecord::Base
         menus.push(menu)
       end
     end
-
-    @active_menus = Array.new
-    for i in 0..menus.size - 1
-      next if i.odd?
-      menu = Array.new
-      menu.push(menus[i])
-      menu.push(menus[i + 1])
-      @active_menus.push(menu)
-    end
-    @active_menus
+    menus
   end
 end

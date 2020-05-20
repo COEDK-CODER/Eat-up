@@ -1,7 +1,7 @@
 class MenuController < ApplicationController
   def index
     @cart_item = CartItem.of_user(current_user)
-    @menu = Menu.all
+    @menu = Menu.active_menu
   end
 
   def create
