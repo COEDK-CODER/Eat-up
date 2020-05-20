@@ -170,6 +170,7 @@ align-items: center;
   margin-left: 14px;
   display: flex;
 width: 162px;
+line-height: 1.2;
 }
 .EditButton{
   background-color: darkred;
