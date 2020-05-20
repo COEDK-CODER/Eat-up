@@ -108,6 +108,7 @@
 .MenuContent-image {
   height: 700px;
   width: 300px;
+  display: flex;
 }
 
 .AddButton {
@@ -153,11 +154,7 @@ width: 350px;
   display: flex;
   color: darkblue;
 }
-.MenuItemDescription {
-  font-size: 13px;
-  margin-bottom: 5px;
-  display: inline;
-}
+
 .MenuItem-manipulate {
   font-size: medium;
   display: flex;
@@ -168,15 +165,15 @@ align-items: center;
   font-size: 14px;
 width: 180px;
   display: flex;
-
+  color: #6b5a5a;
 line-height: 1.2;
 font-style: oblique;
 font-family:cursive ;
-color: #551A8B;
+
 
 }
 .EditButton{
-  background-color: darkred;
+  background-color: tomato;
 
 }
 .DeleteButton{
