@@ -119,7 +119,6 @@
   border-radius: 4px;
   font-size: 16px;
   margin: 4px 0px;
-
   cursor: pointer;
 }
 
@@ -167,9 +166,9 @@ align-items: center;
 }
 .MenuItem-description{
   font-size: 14px;
-  margin-left: 14px;
+
   display: flex;
-width: 162px;
+
 line-height: 1.2;
 font-style: oblique;
 font-family:cursive ;
@@ -178,9 +177,9 @@ color: #551A8B;
 }
 .EditButton{
   background-color: darkred;
-  margin: 0px 15px;
+
 }
-.TrashButton{
+.DeleteButton{
   background-color: #7b497b;
-  margin: 0px 15px;
+
 }
