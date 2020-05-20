@@ -162,7 +162,7 @@ width: 350px;
 .MenuItem-manipulate {
   font-size: medium;
   display: inline-flex;
-
+align-items: center;
   justify-content: space-around;
 }
 .MenuItem-description{
