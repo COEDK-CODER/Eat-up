@@ -39,12 +39,13 @@
                                               price: menu_item.price),
                                               method: "post",
                                               class: "AddButton",
-                                              data: {disable_with: "Adding to cart"} %>
+                                              data: {disable_with: "Adding to cart"}  %>
+
             <% if @current_user.role.eql?("owner")%>
               <%= link_to(edit_menu_item_path(id: menu_item.id),class: 'AddButton EditButton') do %>
                 <%= content_tag('i', nil, class: 'fa fa-pencil') %>
               <% end %>
-              <%= link_to(menu_item_path(id: menu_item.id),class: 'AddButton TrashButton',method: :delete) do %>
+              <%= link_to(menu_item_path(id: menu_item.id),class: 'AddButton DeleteButton',method: :delete) do %>
                 <%= content_tag('i', nil, class: 'fa fa-trash') %>
               <% end %>
               <% end%>
