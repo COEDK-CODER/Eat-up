@@ -6,6 +6,7 @@
         <label class="Details-label">Menu Id :</label>
         <input  value="<%=@menu.id%>" disabled>
       </li>
+
       <li class="Details-item">
         <label class="Details-label">Menu Name :</label>
         <%=text_field_tag 'menu_name', "#{@menu.menu_name}",  minlength: 3, autofocus: true%>

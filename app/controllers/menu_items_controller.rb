@@ -27,7 +27,7 @@ class MenuItemsController < ApplicationController
   end
 
   def create
-    new_menu_item = MenuItem.new(menu_item: params[:menu_item], description: nil,
+    new_menu_item = MenuItem.new(menu_item: params[:menu_item], description: params[:description], url: params[:url],
                                  price: params[:price],
                                  menu_id: params[:menu_id])
     if new_menu_item.save
@@ -51,6 +51,8 @@ class MenuItemsController < ApplicationController
     menu_id = menu_item.menu_id
     menu_item.menu_item = params[:menu_item]
     menu_item.menu_id = params[:menu_id]
+    menu_item.description = params[:description]
+    menu_item.url = params[:url]
     menu_item.price = params[:price]
     if menu_item.save
       menu_item.save!

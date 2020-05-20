@@ -10,9 +10,19 @@
   <ul class="MenuItem">
     <% menu_items.each do |menu_item| %>
       <li class="MenuItem-list">
+
         <label class="MenuItem-container">
-          <%= menu_item.menu_item %>
-          <p class="MenuItem-price"> Rs. <%=menu_item.price %></p>
+<img src= <%= menu_item.url%>
+                    class= "MenuItem-image"
+      >
+
+      <section class="MenuItem-content">
+      <section class="MenuItem-name">
+       <p> <%= menu_item.menu_item %> </p>
+      <p class="MenuItem-price"> Rs. <%=menu_item.price %></p>
+      </section>
+      <section class="MenuItem-manipulate">
+       <p><%= menu_item.description%></p>
           <% qty=nil%>
           <% qty=@cart_item.quantity(menu_item.id)%>
           <% id=@cart_item.cart_id(menu_item.id)%>
@@ -42,6 +52,8 @@
               <% end %>
               <% end%>
           <% end %>
+           </section>
+           </section>
         </label>
       </li>
     <% end %>

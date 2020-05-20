@@ -8,17 +8,15 @@
 <%= image_tag 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80',class: "MenuContent-image" %>
       </div>
     <%else%>
-      <%= image_tag("food.jpg",class: "MenuContent-image") %>
+     <%= image_tag 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80',class: "MenuContent-image" %>
+
     <% end%>
     <div>
       <% @menu.each do |menu| %>
         <div class="Menu">
-          <% if menu[0]%>
-            <%= render partial: "menu-section" ,locals:{id: menu[0].id,section_title: menu[0].menu_name , menu_items: MenuItem.menu_items(menu[0].id) }%>
-          <% end %>
-          <% if menu[1] %>
-            <%= render partial: "menu-section" ,locals:{id: menu[1].id,  section_title: menu[1].menu_name , menu_items: MenuItem.menu_items(menu[1].id) }%>
-          <%end %>
+
+            <%= render partial: "menu-section" ,locals:{id: menu.id,  section_title: menu.menu_name , menu_items: MenuItem.menu_items(menu.id) }%>
+
         </div>
       <% end %>
       <%= button_to "Go to Cart","/cart_items",method: "get",class: "CartButton cart_view"%>

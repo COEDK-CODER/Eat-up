@@ -11,6 +11,14 @@
         <%=text_field_tag 'menu_item', "#{@menu_item.menu_item}",  minlength: 3, autofocus: true%>
       </li>
       <li class="Details-item">
+        <label class="Details-label">Description :</label>
+        <%=text_field_tag 'description', "#{@menu_item.description}",  minlength: 5%>
+      </li>
+       <li class="Details-item">
+        <label class="Details-label">URL :</label>
+        <%= url_field_tag 'url', "#{@menu_item.url}"%>
+      </li>
+      <li class="Details-item">
         <label class="Details-label">Menu Type :</label>
           <select name="menu_id">
             <option value="<%= @menu_item.menu_id %>"><%= Menu.find(@menu_item.menu_id).menu_name%></option>

@@ -19,6 +19,16 @@
             <p class="Form-section-label">New Menu Item</p>
             <%= form.text_field :menu_item , class: "Form-section-input" ,placeholder: "New Menu Item Name",minlength: 3, autofocus: true  %>
           </div>
+          <div class="Form-section ">
+            <p class="Form-section-label">Item Description</p>
+            <%= form.text_field :description, class: "Form-section-input" ,placeholder: "Description",minlength: 5  %>
+          </div>
+            <div class="Form-section ">
+            <p class="Form-section-label">Image Url</p>
+
+             <%= url_field_tag 'url', nil, class: 'Form-section-input',placeholder: "URL" %>
+          </div>
+
           <div class="Form-section Price">
             <p class="Form-section-label">Price</p>
             <%= form.number_field :price, min: 1,placeholder: "price",class: "Form-section-input"%>

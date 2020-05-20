@@ -9,29 +9,33 @@
 }
 
 .MenuSection {
-  padding: 20px;
-  width: 500px;
-  margin: 30px;
+
 }
 
 .MenuSection-title {
   margin-right: 10px;
-  font-size: 35px;
+  font-size: 45px;
   color: chocolate;
 }
 
 .MenuItem {
-  list-style: decimal;
-  margin-left: 40px;
+
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 10px;
+
+  padding: 10px;
 }
 
 .MenuItem-list {
   padding: 5px;
   font-size: 20px;
+  margin: 10px;
+  width: 362px;
 }
 
 .MenuItem-container {
-  display: inline-flex;
+
   padding: 5px;
   align-items: center;
 }
@@ -58,6 +62,8 @@
 .MenuSection-header {
   display: flex;
   align-items: first baseline;
+  margin-left: 500px;
+  margin-top: 20px;
 }
 
 .MenuBar-button {
@@ -84,7 +90,9 @@
 }
 
 .MenuItem-list:hover {
-  background-color: #c6e4f4;
+ background-color: aliceblue;
+ padding: 4.2px;
+ border-radius: 10px;
 
 }
 
@@ -102,7 +110,7 @@
 }
 
 .AddButton {
-  visibility: hidden;
+
   background-color: #4CAF50;
   border: none;
   color: white;
@@ -126,4 +134,32 @@
   height: 25px;
   width: 30px;
   background-color: lightgray;
+  margin-left: 50px;
+}
+.MenuItem-image {
+  align-content: center;
+margin-bottom: 5px;
+  border-radius: 12px;
+  height: 180px;
+width: 350px;
+}
+.MenuItem-content {
+  margin-left: 35px;
+}
+.MenuItem-name {
+  font-size: 20px;
+  margin-bottom: 5px;
+  font-weight: 500;
+  display: flex;
+}
+.MenuItemDescription {
+  font-size: 13px;
+  margin-bottom: 5px;
+  display: inline;
+}
+.MenuItem-manipulate {
+  font-size: medium;
+  display: inline-flex;
+  align-items: first baseline;
+  justify-content: space-around;
 }

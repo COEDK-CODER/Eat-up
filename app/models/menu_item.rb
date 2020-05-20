@@ -1,6 +1,8 @@
 class MenuItem < ActiveRecord::Base
   belongs_to :menu
   validates :menu_item, presence: true
+  validates :description, presence: true
+  validates :url, presence: true
   validates :price, presence: true
   def self.menu_items(id)
     MenuItem.where(menu_id: id)
