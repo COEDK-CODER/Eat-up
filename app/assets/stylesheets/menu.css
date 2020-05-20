@@ -46,9 +46,9 @@
 
 .MenuItem-price {
   margin: auto 15px;
-  font-size: 16px;
-  color: darkblue;
-  padding: 4px;
+  font-size: inherit;
+  color: darkred;
+
 }
 
 .MenuItem-quantity {
@@ -144,13 +144,14 @@ margin-bottom: 5px;
 width: 350px;
 }
 .MenuItem-content {
-  margin-left: 35px;
+  margin-left: 24px;
 }
 .MenuItem-name {
-  font-size: 20px;
-  margin-bottom: 5px;
-  font-weight: 500;
+  padding: 5px;
+
+ justify-content: space-between;
   display: flex;
+  color: darkblue;
 }
 .MenuItemDescription {
   font-size: 13px;
@@ -162,4 +163,16 @@ width: 350px;
   display: inline-flex;
   align-items: first baseline;
   justify-content: space-around;
+}
+.MenuItem-description{
+  font-size: 14px;
+  margin-left: 14px;
+  display: flex;
+width: 156px;
+}
+.EditButton{
+  background-color: darkred;
+}
+.TrashButton{
+  background-color: #7b497b;
 }

@@ -16,12 +16,10 @@
       <%= image_tag "#{menu_item.url}",class: "MenuItem-image" %>
 
       <section class="MenuItem-content">
-      <section class="MenuItem-name">
-       <p> <%= menu_item.menu_item %> </p>
-      <p class="MenuItem-price"> Rs. <%=menu_item.price %></p>
-      </section>
+       <p class="MenuItem-name"> <%= menu_item.menu_item %> <span class="MenuItem-price"> ₹<%=menu_item.price %></span></p>
       <section class="MenuItem-manipulate">
-       <p><%= menu_item.description%></p>
+       <p class="MenuItem-description"><%= menu_item.description%></p>
+
           <% qty=nil%>
           <% qty=@cart_item.quantity(menu_item.id)%>
           <% id=@cart_item.cart_id(menu_item.id)%>
@@ -43,10 +41,10 @@
                                               class: "AddButton",
                                               data: {disable_with: "Adding to cart"} %>
             <% if @current_user.role.eql?("owner")%>
-              <%= link_to(edit_menu_item_path(id: menu_item.id),class: 'AddButton') do %>
+              <%= link_to(edit_menu_item_path(id: menu_item.id),class: 'AddButton EditButton') do %>
                 <%= content_tag('i', nil, class: 'fa fa-pencil') %>
               <% end %>
-              <%= link_to(menu_item_path(id: menu_item.id),class: 'AddButton',method: :delete) do %>
+              <%= link_to(menu_item_path(id: menu_item.id),class: 'AddButton TrashButton',method: :delete) do %>
                 <%= content_tag('i', nil, class: 'fa fa-trash') %>
               <% end %>
               <% end%>

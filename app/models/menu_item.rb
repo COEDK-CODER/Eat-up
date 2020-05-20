@@ -5,7 +5,7 @@ class MenuItem < ActiveRecord::Base
   validates :url, presence: true
   validates :price, presence: true
   def self.menu_items(id)
-    MenuItem.where(menu_id: id)
+    MenuItem.where(menu_id: id).order(:id)
   end
 
   def self.active_menus
