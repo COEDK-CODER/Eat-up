@@ -149,7 +149,7 @@ width: 350px;
 }
 .MenuItem-name {
   padding: 5px;
-
+  font-weight: bold;
  justify-content: space-between;
   display: flex;
   color: darkblue;
@@ -171,6 +171,10 @@ align-items: center;
   display: flex;
 width: 162px;
 line-height: 1.2;
+font-style: oblique;
+font-family:cursive ;
+color: #551A8B;
+
 }
 .EditButton{
   background-color: darkred;
