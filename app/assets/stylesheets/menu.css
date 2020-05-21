@@ -64,7 +64,7 @@
   display: flex;
   align-items: first baseline;
   margin-left: 500px;
-  margin-top: 20px;
+
 }
 
 .MenuBar-button {
@@ -106,7 +106,7 @@
 }
 
 .MenuContent-image {
-  height: 50%;
+  height: 700px;
   width: 300px;
   display: flex;
 
@@ -179,5 +179,7 @@ font-family:cursive ;
 }
 .DeleteButton{
   background-color: #7b497b;
-
+}
+.scroll{
+  padding: 5px;
 }
