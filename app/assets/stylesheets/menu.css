@@ -182,4 +182,7 @@ font-family:cursive ;
 }
 .scroll{
   padding: 5px;
+  background-color: #ccc;
+  font-weight: bold;
+
 }
