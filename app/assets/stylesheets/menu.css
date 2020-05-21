@@ -94,7 +94,7 @@
  background-color: aliceblue;
  padding: 4.2px;
  border-radius: 10px;
-
+ box-shadow: 0px 1px 5px rgb(141, 141, 240);
 }
 
 .MenuItem-list:hover .AddButton {
@@ -106,9 +106,10 @@
 }
 
 .MenuContent-image {
-  height: 700px;
+  height: 50%;
   width: 300px;
   display: flex;
+
 }
 
 .AddButton {
