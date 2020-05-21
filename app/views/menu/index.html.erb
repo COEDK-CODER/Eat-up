@@ -15,7 +15,7 @@
     </div>
     <% end%>
     <div>
-      <marquee class= "scroll" direction="left">Welcome EatUp cafe,Please take a moment to tell us what you think about our application or anything else that comes to mind. We welcome all of your comments and suggestions that will help us improve a lot based on your feedback. And...please visit us often!</marquee>
+      <marquee class= "scroll" behavior="alternate">Welcome EatUp cafe,Please take a moment to tell us what you think about our application or anything else that comes to mind. <br>We welcome all of your comments and suggestions that will help us improve a lot based on your feedback.<br> And...please visit us often!</marquee>
       <% @menu.each do |menu| %>
         <div class="Menu">
           <%= render partial: "menu-section" ,locals:{id: menu.id,  section_title: menu.menu_name , menu_items: MenuItem.menu_items(menu.id) }%>
