@@ -1,28 +1,24 @@
 <article class="MenuPage" >
   <h1 class="MenuPageTitle">MENU</h1>
-
   <div class="MenuContent">
     <% if @current_user.role=="owner"%>
       <div>
         <%= render partial: "dash-section"%>
-          <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" class= "MenuContent-image"/>
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzeq06Udhi6-GHuDFPeqE-lhMFMxUg_z2FQVqogSUKv1kjQS0ErA&s" width="300" height=70%/>
-
-           </div>
+        <%= image_tag("https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80", class: "MenuContent-image") %>
+      <%= image_tag("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzeq06Udhi6-GHuDFPeqE-lhMFMxUg_z2FQVqogSUKv1kjQS0ErA&s", style: 'width: 300px; height: 81.2%;') %>
+      </div>
     <%else%>
     <div>
-      <%= image_tag 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80',class: "MenuContent-image" %>
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzeq06Udhi6-GHuDFPeqE-lhMFMxUg_z2FQVqogSUKv1kjQS0ErA&s" class= "MenuContent-image"/>
+      <%= image_tag("https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80", class: "MenuContent-image") %>
 
-</div>
+    <%= image_tag("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzeq06Udhi6-GHuDFPeqE-lhMFMxUg_z2FQVqogSUKv1kjQS0ErA&s", style: 'width: 300px; height: 81.2%;') %>
+    </div>
     <% end%>
     <div>
-    <marquee class= "scroll" behavior="alternate">Welcome EatUp cafe</marquee>
+      <marquee class= "scroll" direction="left">Welcome EatUp cafe,Please take a moment to tell us what you think about our application or anything else that comes to mind. We welcome all of your comments and suggestions that will help us improve a lot based on your feedback. And...please visit us often!</marquee>
       <% @menu.each do |menu| %>
         <div class="Menu">
-
-            <%= render partial: "menu-section" ,locals:{id: menu.id,  section_title: menu.menu_name , menu_items: MenuItem.menu_items(menu.id) }%>
-
+          <%= render partial: "menu-section" ,locals:{id: menu.id,  section_title: menu.menu_name , menu_items: MenuItem.menu_items(menu.id) }%>
         </div>
       <% end %>
       <%= button_to "Go to Cart","/cart_items",method: "get",class: "CartButton cart_view"%>
