@@ -15,11 +15,18 @@
     </div>
     <% end%>
     <div>
-      <marquee class= "scroll" behavior="alternate">Welcome EatUp cafe,Please take a moment to tell us what you think about our application or anything else that comes to mind. <br>We welcome all of your comments and suggestions that will help us improve a lot based on your feedback.<br> And...please visit us often!</marquee>
+      <marquee class= "scroll" behavior="alternate">Welcome EatUp cafe,Please take a moment to tell us what you think about our application or anything else that comes to mind. <br>
+      We welcome all of your comments and suggestions that will help us improve a lot based on your <%= link_to "Feedback","
+https://docs.google.com/forms/d/e/1FAIpQLScQRbsSbq_r0oZFnDwKg_db5RwTGsfqz956tjCYtaOKRLbuJw/viewform?usp=pp_url&entry.831979437=#{@current_user.id}&entry.1409699261=#{@current_user.first_name}&entry.1247884364=#{@current_user.phone_number}
+ "%>
+
+.
+      <br> And...please visit us often!</marquee>
       <% @menu.each do |menu| %>
         <div class="Menu">
           <%= render partial: "menu-section" ,locals:{id: menu.id,  section_title: menu.menu_name , menu_items: MenuItem.menu_items(menu.id) }%>
         </div>
+
       <% end %>
       <%= button_to "Go to Cart","/cart_items",method: "get",class: "CartButton cart_view"%>
     </div>
