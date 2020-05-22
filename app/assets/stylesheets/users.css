@@ -1,6 +1,6 @@
 .NewUsersPage {
   font-family: sans-serif;
-  margin-top: 35px;
+  margin-top: 28px;
   padding: 20px;
   background-color: antiquewhite;
   border-radius: 10px;
@@ -15,7 +15,7 @@
 
 .NewUsers-title {
   font-size: 35px;
-  padding-bottom: 30px;
+  padding-bottom: 25px;
   color: darkblue;
 }
 
@@ -25,7 +25,7 @@
 }
 
 .Form-section {
-  padding-bottom: 15px;
+  padding-bottom: 12px;
 }
 
 .Form-section-authenticate {
