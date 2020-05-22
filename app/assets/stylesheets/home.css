@@ -53,5 +53,5 @@ padding-left: 500px;
 font-weight: bolder;
 }
 .main-content {
-  min-height: calc(100vh - 40px);
+  min-height: calc(100vh - 65px);
 }
