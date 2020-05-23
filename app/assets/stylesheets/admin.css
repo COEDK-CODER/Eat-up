@@ -12,18 +12,18 @@
 }
 
 .Dash {
-  background-color: brown;
+  background-color: darkslategray;
   width: 300px;
 }
 
 .Dash-button:hover {
-  background-color: darkred;
+  background-color: #253c3c;
 }
 
 .Admin-title {
   line-height: 2;
   font-size: 30px;
-  background-color: darkred;
+  background-color: #253c3c;
   width: 280px;
   padding: 5px 618px;
   color: white;
@@ -35,7 +35,7 @@
 }
 
 .ManageMenu {
-  background-color: bisque;
+  background-color: aliceblue;
   border-radius: 10px;
   padding: 30px;
   margin: 50px 0px 50px 300px;

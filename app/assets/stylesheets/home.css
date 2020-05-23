@@ -29,15 +29,16 @@ body {
 }
 
 .Cafeteria-header-line {
-  height: 1px;
-  background: brown;
+
+  background: darkslategray;
   margin: auto;
 }
 
 .Cafeteria-header {
   display: flex;
-  background-color: antiquewhite;
-  color: brown;
+
+  background-color: #c2cfcf;
+  color: darkslategray;
 }
 
 .Cafeteria-footer {

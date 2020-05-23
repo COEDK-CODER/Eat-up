@@ -60,13 +60,13 @@
 
 .Clear_cart {
   padding: 10px;
-  background-color: darkred;
+  background-color: rgb(170, 23, 23);
   margin-left: 0px;
 }
 
 .Clear_cart:hover {
   padding: 10px;
-  background-color: rgb(170, 23, 23);
+  background-color: tomato;
   margin-left: 0px;
 }
 
