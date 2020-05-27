@@ -78,6 +78,7 @@ background-color: aliceblue;
   display: inline-block;
   border: 1px solid #ccc;
   border-radius: 4px;
+  background-color: whitesmoke;
 }
 
 .Details-item {
