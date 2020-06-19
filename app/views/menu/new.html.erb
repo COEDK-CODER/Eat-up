@@ -9,7 +9,7 @@
             <%= form.text_field :menu_name , class: "Form-section-input" ,placeholder: "New Menu Name",minlength: 3, autofocus: true%>
           </div>
           <div class="Form-section">
-            <%= form.submit "Add Menu" , class: "Form-section-submit ",data: {disable_with: "Menu is creating.."}%>
+            <%= form.submit "Add Menu" , class: "Form-section-submit ",data: {disable_with: "Adding new Menu .."}%>
           </div>
         <%end%>
       </section>
@@ -42,7 +42,7 @@
             </select>
           </div>
           <div>
-            <%= form.submit "Add Menu Item" , class: "Form-section-submit ",data: {disable_with: "Menu Item is creating.."}%>
+            <%= form.submit "Add Menu Item" , class: "Form-section-submit ",data: {disable_with: "Adding new Menu Item..."}%>
           </div>
         <%end%>
       </section>

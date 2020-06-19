@@ -11,6 +11,9 @@
         <input type="button", value="Get", Onclick="this.form.submit()" >
       </section>
     <% end%>
+     <%if @orders %>
+      <% if !(Order.valid_date(@from_date,@to_date))%>
+      <p class=" Invoice-date DashBoard-section-title" >Amount Collected<span><%= Order.amount(@orders)%><span></p>
     <section class="ManageMenu-section">
       <table class="OrderCart">
 	      <thead>
@@ -23,8 +26,8 @@
           </tr>
 	      </thead>
 	      <tbody>
-          <%if @orders %>
-            <% if !(Order.valid_date(@from_date,@to_date))%>
+
+
               <% @orders.order(:id).each_with_index do |order,i|%>
               <tr>
     	          <td>ORD-<%= order.id%></td>
@@ -33,15 +36,16 @@
             	  <td><%= order.amount%></td>
     	          <td>
                   <%= link_to(order_path(order.id),class: 'Menu-button TrashIcon') do %>
-                    <%= content_tag('i', nil, class: 'fa fa-external-link') %> Expand
+                    <%= content_tag('i', nil, class: 'fa fa-external-link') %> Order Details
                   <% end %>
                 </td>
               </tr>
             <% end %>
-          <% end %>
-        <% end %>
+
     	</tbody>
     </table>
   </section>
+   <% end %>
+        <% end %>
 </div>
 </div>

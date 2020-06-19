@@ -16,6 +16,9 @@ class Order < ActiveRecord::Base
   end
   def self.today_payment
     orders = all.where("order_date = ? and order_status = ?", Date.today, "Delivered")
+    Order.amount(orders)
+  end
+  def self.amount(orders)
     amount = 0
     orders.each do |order|
       amount += order.amount
