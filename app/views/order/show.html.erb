@@ -1,4 +1,28 @@
 <h1 class="MenuPageTitle">Order Details</h1>
+
+
+
+<table class="OrderCart">
+<tr>
+			<th>Name</th>
+			<td><%= @current_user.first_name%></td>
+			<th>Total </th>
+			<td><%= @order.amount%></td>
+		</tr>
+		<tr>
+			<th>Order Id</th>
+			<td>EATORD<%= @order.id%></td>
+			<th>Order Type</th>
+			<td>Home Delivered</td>
+		</tr>
+		<tr>
+			<th> Ordered at</th>
+			<td> <%= @order.created_at.to_formatted_s(:short)%></td>
+			<th> Delivered at</th>
+			<td><%= @order.created_at.to_formatted_s(:short)%></td>
+		</tr>
+
+</table>
 <table class="OrderCart">
 	<thead>
 		<tr>
@@ -22,5 +46,5 @@
 	</tbody>
 </table>
 <%= link_to(:back,class: 'Menu-button  Collapse') do %>
-  <%= content_tag('i', nil, class: 'fa fa-compress') %> Collapse
+  <%= content_tag('i', nil, class: 'fa fa-compress') %> Back
 <% end %>

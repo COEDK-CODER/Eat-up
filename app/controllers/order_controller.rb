@@ -6,6 +6,7 @@ class OrderController < ApplicationController
                               order_status: "Not Delivered",
                               amount: params[:amount])
     OrderItem.active_order_items(current_user.id, new_order.id)
+    flash[:notice] = "Order placed succesfully with Id: EATORD#{new_order.id}"
     redirect_to "/order"
   end
 
@@ -31,6 +32,7 @@ class OrderController < ApplicationController
   end
 
   def index
+    @orders = @current_user.orders.order(id: :desc)
   end
 
   def display

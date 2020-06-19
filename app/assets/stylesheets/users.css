@@ -109,3 +109,7 @@ background-color: aliceblue;
   padding: 10px 20px;
   color: white;
 }
+.message{
+  margin-left: 600px;
+  background-color: green;
+}

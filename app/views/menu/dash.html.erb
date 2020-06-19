@@ -8,7 +8,7 @@
           <p> <%= User.all.count%> Members</p>
       </section>
       <section class="DashBoard-section">
-        <h4 class="DashBoard-section-title">Order Recived Today</h4>
+        <h4 class="DashBoard-section-title">Order Received Today</h4>
         <p > <%= Order.where("order_date = ?",Date.today).count%></p>
       </section>
     </div>

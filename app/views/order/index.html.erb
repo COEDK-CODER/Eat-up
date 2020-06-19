@@ -1,5 +1,9 @@
 <h1 class="MenuPageTitle">My Orders</h1>
+
 <table class="OrderCart">
+<% if flash[:notice] %>
+    <p class="Flash-notice message"> <%= flash[:notice]%></p>
+  <% end %>
 	<thead>
 		<tr>
 			<th>S No.</th>
@@ -11,7 +15,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		<% @current_user.orders.order(id: :desc).each_with_index do |order,i|%>
+		<% @orders.each_with_index do |order,i|%>
 			<tr>
 				<td><%= i+1%></td>
 				<td> <%= order.order_date%> </td>
@@ -23,7 +27,7 @@
 				</td>
 				<td>
 					<%= link_to(order_path(order.id),class: 'Menu-button TrashIcon') do %>
-    				<%= content_tag('i', nil, class: 'fa fa-external-link') %> Expand
+    				<%= content_tag('i', nil, class: 'fa fa-external-link') %> Order Details
     			<% end %>
 				</td>
 			</tr>
