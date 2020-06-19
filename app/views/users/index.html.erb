@@ -1,0 +1,29 @@
+<h1 class="Admin-title">Invoices Report</h1>
+<div class="Dash-items">
+  <%= render partial: "dash-section"%>
+<table class="OrderCart">
+	<thead>
+		<tr>
+    <th>Sno</th>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Phone Number</th>
+			<th>Role</th>
+			<th>Orders Till Now</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @users.each_with_index do |user,i|%>
+			<tr>
+				<td> <%= i+1	 %> </td>
+				<td> <%= user.first_name%> </td>
+				<td> <%= user.email%> </td>
+				<td> <%= user.phone_number%> </td>
+				<td> <%=user.role %> </td>
+        	<td> <%=user.orders.count %> </td>
+
+  		</tr>
+		<% end %>
+	</tbody>
+</table>
+</div>

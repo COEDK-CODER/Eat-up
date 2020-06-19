@@ -16,7 +16,7 @@
       <%= image_tag "#{menu_item.url}",class: "MenuItem-image" %>
 
       <section class="MenuItem-content">
-       <p class="MenuItem-name"> <%= menu_item.menu_item %> <span class="MenuItem-price"> ₹<%=menu_item.price %></span></p>
+       <p class="MenuItem-name" id="<%= menu_item.menu_item %>"> <%= menu_item.menu_item %> <span class="MenuItem-price"> ₹<%=menu_item.price %></span></p>
       <section class="MenuItem-manipulate">
        <p class="MenuItem-description"><%= menu_item.description%></p>
 

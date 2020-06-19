@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
   skip_before_action :ensure_logged_in
 
+  def index
+    ensure_owner_logged_in
+    @users = User.all
+  end
+
   def new
     render "new"
   end

@@ -14,6 +14,7 @@
      <%if @orders %>
       <% if !(Order.valid_date(@from_date,@to_date))%>
       <p class=" Invoice-date DashBoard-section-title" >Amount Collected<span><%= Order.amount(@orders)%><span></p>
+        <p class=" Invoice-date DashBoard-section-title" >Orders Received<span><%= Order.count%><span></p>
     <section class="ManageMenu-section">
       <table class="OrderCart">
 	      <thead>
