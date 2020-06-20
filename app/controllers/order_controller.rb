@@ -28,7 +28,7 @@ class OrderController < ApplicationController
     end
 
     order.save!
-    redirect_to "/all_orders"
+    redirect_to "/all_orders?dash=true"
   end
 
   def index
@@ -38,6 +38,21 @@ class OrderController < ApplicationController
   def display
     ensure_owner_logged_in
     @orders = Order.all
+    @id = params[:id]
+
+    if params[:dash]
+      @order = nil
+    else
+      @order = Order.find_by(id: @id)
+      if @id.eql?("")
+        flash[:error] = "Order Id can't be empty"
+        redirect_to "/all_orders?dash=true"
+      elsif !@order
+        flash[:error] = "Invalid Order Id"
+        redirect_to "/all_orders?dash=true"
+      else
+      end
+    end
   end
 
   def invoices

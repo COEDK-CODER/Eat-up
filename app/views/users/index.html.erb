@@ -1,6 +1,51 @@
-<h1 class="Admin-title">Invoices Report</h1>
+<h1 class="Admin-title">Manage Users</h1>
 <div class="Dash-items">
   <%= render partial: "dash-section"%>
+  <div class="Invoice-section">
+		<%= form_with(url: "/users", method: "get") do %>
+		  <p class="DashBoard-section-title">Email</p>
+      <%= email_field_tag 'email'%>
+      <input type="button", value="Search", Onclick="this.form.submit()" >
+    <% end%>
+
+<% if @user%>
+ <%=form_with(url: "/users/#{@user.id}?dash=true", method: "put")do%>
+  <table class="OrderCart">
+	<thead>
+		<tr>
+    <th>User Id</th>
+     <td><%= @user.id%></td>
+			<th>User Name</th>
+			 <td><%= @user.first_name%></td>
+       </tr>
+       <tr>
+      <th>Email</th>
+       <td><%= @user.email%></td>
+			<th>Phone Number</th>
+       <td><%= @user.phone_number%></td>
+       </tr>
+			<th>Role</th>
+       <td>
+			 <select name="role">
+<option value="<%= @user.role%>"><%= @user.role%></option>
+<% roles=["owner","customer","clerk"]%>
+<% roles.each do |role|%>
+<% if !(role.eql?(@user.role))%>
+                <option value="<%= role%>"><%= role%></option>
+								<% end %>
+								 <%end %>
+
+            </select>
+						</td>
+			<th>Action</th>
+			<td> <%= submit_tag "Update",class: 'MenuBar-button',data: {disable_with: "updating.."}%></td>
+		</tr>
+	</thead>
+
+</table>
+
+    <%end%>
+<%else%>
 <table class="OrderCart">
 	<thead>
 		<tr>
@@ -24,6 +69,8 @@
 
   		</tr>
 		<% end %>
+		<% end %>
 	</tbody>
 </table>
+</div>
 </div>

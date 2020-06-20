@@ -4,6 +4,21 @@ class UsersController < ApplicationController
   def index
     ensure_owner_logged_in
     @users = User.all
+    @email = params[:email]
+
+    if params[:dash]
+      @user = nil
+    else
+      @user = User.find_by(email: params[:email])
+      if @email.eql?("")
+        flash[:error] = "Mail can't be empty"
+        redirect_to "/users?dash=true"
+      elsif !@user
+        flash[:error] = "Invalid User"
+        redirect_to "/users?dash=true"
+      else
+      end
+    end
   end
 
   def new
@@ -45,17 +60,23 @@ class UsersController < ApplicationController
 
   def update
     user = User.find(params[:id])
-    user.first_name = params[:first_name]
-    user.phone_number = params[:phone_number]
-    if params[:password]
-      user.password = params[:password]
-    end
-    if user.save
+    if params[:dash]
+      user.role = params[:role]
       user.save!
-      redirect_to "/users/#{params[:id]}"
+      redirect_to "/users?email=#{user.email}"
     else
-      flash[:error] = "User name can't be blank"
-      redirect_to edit_user_path(id: params[:id])
+      user.first_name = params[:first_name]
+      user.phone_number = params[:phone_number]
+      if params[:password]
+        user.password = params[:password]
+      end
+      if user.save
+        user.save!
+        redirect_to "/users/#{params[:id]}"
+      else
+        flash[:error] = "User name can't be blank"
+        redirect_to edit_user_path(id: params[:id])
+      end
     end
   end
 end

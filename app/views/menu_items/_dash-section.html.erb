@@ -5,10 +5,10 @@
     <%= link_to(new_menu_path,class: 'Dash-button') do %>
       <%= content_tag('i', nil, class: 'fa fa-cutlery') %> Manage Menu
     <% end %>
-    <%= link_to(users_path,class: 'Dash-button') do %>
+    <%= link_to(users_path(from: true),class: 'Dash-button') do %>
       <%= content_tag('i', nil, class: 'fa fa-users') %> Manage Staff
     <% end %>
-    <%= link_to(all_orders_path,class: 'Dash-button') do %>
+    <%= link_to(all_orders_path(dash: true),class: 'Dash-button') do %>
       <%= content_tag('i', nil, class: 'fa fa-paper-plane') %> Manage Orders
     <% end %>
     <%= link_to(invoices_statement_path(from: "dash"),class: 'Dash-button') do %>

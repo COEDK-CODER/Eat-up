@@ -2,6 +2,15 @@
 <h1 class="Admin-title">Manage Orders</h1>
 <div class="Dash-items">
 <%= render partial: "dash-section"%>
+ <div class="Invoice-section">
+		<%= form_with(url: "/all_orders", method: "get") do %>
+		  <p class="DashBoard-section-title">Order Id</p>
+      <%= number_field_tag 'id'%>
+      <input type="button", value="Search", Onclick="this.form.submit()" >
+    <% end%>
+
+
+
 	<table class="OrderCart">
 		<thead>
 			<tr>
@@ -12,6 +21,17 @@
 				<th>Action</th>
 			</tr>
 		</thead>
+		<% if @order%>
+		<td><%= @order.id%></td>
+		<td><%= User.find(@order.user_id).first_name%></td>
+		<td><%= @order.amount%></td>
+		<td><%= @order.order_status%></td>
+		<td>
+		<%= link_to(order_path(@order.id),class: 'Menu-button TrashIcon') do %>
+                    <%= content_tag('i', nil, class: 'fa fa-external-link') %> Order Details
+                  <% end %></td>
+
+		<% else%>
 		<tbody>
 			<% if @orders %>
 				<tr>
@@ -32,5 +52,7 @@
  				<%= render partial: "row-section" , locals: { orders: @orders.delivered ,status: "Not Delivered",style: "OrderStatus",state: nil}%>
 			<% end%>
 		</tbody>
+		<% end %>
 	</table>
+	</div>
 </div>
