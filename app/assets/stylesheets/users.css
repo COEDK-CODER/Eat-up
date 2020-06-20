@@ -113,3 +113,7 @@ background-color: aliceblue;
   margin-left: 600px;
   background-color: green;
 }
+tr.break td {
+  height: 10px;
+  border: 0px;
+}

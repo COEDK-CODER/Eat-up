@@ -17,6 +17,7 @@ class UsersController < ApplicationController
         flash[:error] = "Invalid User"
         redirect_to "/users?dash=true"
       else
+        @orders=@user.orders
       end
     end
   end
