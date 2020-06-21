@@ -5,7 +5,7 @@
 		<%= form_with(url: "/users", method: "get") do %>
 			<p class="DashBoard-section-title">Email</p>
       <%= email_field_tag 'email'%>
-    <%= submit_tag "Fetch",data: {disable_with: "Fetching..."}%>
+      <input type="button", value="Search", Onclick="this.form.submit()" >
     <% end%>
 		<% if @user%>
  			<%=form_with(url: "/users/#{@user.id}?dash=true", method: "put")do%>

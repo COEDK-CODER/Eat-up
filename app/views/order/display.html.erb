@@ -6,7 +6,7 @@
 		<%= form_with(url: "/all_orders", method: "get") do %>
 			<p class="DashBoard-section-title">Order Id</p>
     	<%= number_field_tag 'id',nil,min:1%>
-			<%= submit_tag "Fetch",data: {disable_with: "Fetching..."}%>
+    	<input type="button", value="Search", Onclick="this.form.submit()" >
     <% end%>
 		<table class="OrderCart">
 			<thead>
