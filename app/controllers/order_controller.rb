@@ -11,7 +11,7 @@ class OrderController < ApplicationController
   end
 
   def show
-    if current_user.role.eql?("owner")
+    if @admin
       @order = Order.find(params[:id])
     else
       @order = Order.of_user(current_user).find(params[:id])

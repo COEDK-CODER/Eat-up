@@ -46,9 +46,10 @@ class MenuController < ApplicationController
     ensure_owner_logged_in
     menu = Menu.find(params[:id])
     if menu.menu_items.count > 1
-      flash[:error] = "Current Menu is n't empty"
+      flash[:error] = "Current Menu's Items shouldn't be greater than 1"
       redirect_to "/menu/#{params[:id]}/edit"
     else
+      menu.menu_items.destroy
       menu.destroy
       redirect_to "/menu"
     end

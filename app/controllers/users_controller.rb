@@ -29,17 +29,23 @@ class UsersController < ApplicationController
   end
 
   def create
-    new_user = User.new(first_name: params[:first_name],
-                        last_name: params[:last_name],
-                        role: params[:role],
-                        email: params[:email],
-                        password: params[:password])
-    if new_user.save
-      session[:current_user_id] = new_user.id
-      redirect_to "/users/#{new_user.id}"
-    else
-      flash[:error] = new_user.errors.full_messages.join(",")
+    user = User.find_by(email: params[:email])
+    if user
+      flash[:error] = "email already exists"
       redirect_to new_user_path
+    else
+      new_user = User.new(first_name: params[:first_name],
+                          last_name: params[:last_name],
+                          role: params[:role],
+                          email: params[:email],
+                          password: params[:password])
+      if new_user.save
+        session[:current_user_id] = new_user.id
+        redirect_to "/users/#{new_user.id}"
+      else
+        flash[:error] = new_user.errors.full_messages.join(",")
+        redirect_to new_user_path
+      end
     end
   end
 

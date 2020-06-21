@@ -18,7 +18,7 @@
         <p>  <%= Order.not_delivered.count%> </p>
       </section>
       <section class="DashBoard-section">
-        <h4 class="DashBoard-section-title">Staff Members</h4>
+        <h4 class="DashBoard-section-title">Staff Members (clerk)</h4>
         <p>  <%= User.where("role = ?","clerk").count%> Members</p>
       </section>
     </div>

@@ -13,9 +13,9 @@
 		<td>Home Delivered</td>
 	</tr>
 	<tr>
-		<th> Ordered at</th>
+		<th> Ordered Time</th>
 		<td> <%= @order.created_at.to_formatted_s(:short)%></td>
-		<th> Delivered at</th>
+		<th> Delivered Time</th>
 		<% if @order.order_status.eql?("Delivered")%>
 			<td><%= @order.updated_at.to_formatted_s(:short)%></td>
 		<% else%>

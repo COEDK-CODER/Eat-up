@@ -4,9 +4,11 @@
 	<%= render partial: "dash-section"%>
  	<div class="Invoice-section">
 		<%= form_with(url: "/all_orders", method: "get") do %>
-			<p class="DashBoard-section-title">Order Id</p>
-    	<%= number_field_tag 'id',nil,min:1%>
-    	<input type="button", value="Search", Onclick="this.form.submit()" >
+			<section class="Invoice-date">
+				<p class="DashBoard-section-title">Order Id</p>
+    		<%= number_field_tag 'id',nil,min:1%>
+    		<button type="submit" value="Submit">Submit</button>
+			</section>
     <% end%>
 		<table class="OrderCart">
 			<thead>
