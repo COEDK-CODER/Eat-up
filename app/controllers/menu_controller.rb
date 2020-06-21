@@ -26,7 +26,7 @@ class MenuController < ApplicationController
   end
 
   def dash
-    ensure_owner_logged_in
+    ensure_admin_logged_in
   end
 
   def update
@@ -39,6 +39,18 @@ class MenuController < ApplicationController
     else
       flash[:error] = menu.errors.full_messages.join(",")
       redirect_to edit_menu_path(id: params[:id])
+    end
+  end
+
+  def destroy
+    ensure_owner_logged_in
+    menu = Menu.find(params[:id])
+    if menu.menu_items.count > 1
+      flash[:error] = "Current Menu is n't empty"
+      redirect_to "/menu/#{params[:id]}/edit"
+    else
+      menu.destroy
+      redirect_to "/menu"
     end
   end
 end

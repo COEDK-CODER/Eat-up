@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
   skip_before_action :ensure_logged_in
+  skip_before_action :role
 
   def index
     ensure_owner_logged_in
+    role
     @users = User.all
     @email = params[:email]
 
@@ -17,7 +19,7 @@ class UsersController < ApplicationController
         flash[:error] = "Invalid User"
         redirect_to "/users?dash=true"
       else
-        @orders=@user.orders
+        @orders = @user.orders.order(id: :desc)
       end
     end
   end

@@ -5,11 +5,10 @@
   padding: 0px 610px;
   border-style: solid;
   border-width: 4px;
-  border-color:darkslategrey;
+  border-color: darkslategrey;
 }
 
 .MenuSection {
-
 }
 
 .MenuSection-title {
@@ -20,11 +19,9 @@
 }
 
 .MenuItem {
-
   display: grid;
   grid-template-columns: auto auto auto;
   grid-gap: 10px;
-
   padding: 10px;
 }
 
@@ -36,7 +33,6 @@
 }
 
 .MenuItem-container {
-
   padding: 5px;
   align-items: center;
 }
@@ -49,7 +45,6 @@
   margin: auto 15px;
   font-size: inherit;
   color: darkred;
-
 }
 
 .MenuItem-quantity {
@@ -64,7 +59,6 @@
   display: flex;
   align-items: first baseline;
   margin-left: 500px;
-
 }
 
 .MenuBar-button {
@@ -87,14 +81,13 @@
 
 .MenuBar {
   display: flex;
-
 }
 
 .MenuItem-list:hover {
- background-color: aliceblue;
- padding: 4.2px;
- border-radius: 10px;
- box-shadow: 0px 1px 5px rgb(141, 141, 240);
+  background-color: aliceblue;
+  padding: 4.2px;
+  border-radius: 10px;
+  box-shadow: 0px 1px 5px rgb(141, 141, 240);
 }
 
 .MenuItem-list:hover .AddButton {
@@ -109,11 +102,9 @@
   height: 700px;
   width: 300px;
   display: flex;
-
 }
 
 .AddButton {
-
   background-color: #4CAF50;
   border: none;
   color: white;
@@ -138,20 +129,23 @@
   background-color: lightgray;
   margin-left: 50px;
 }
+
 .MenuItem-image {
   align-content: center;
-margin-bottom: 5px;
+  margin-bottom: 5px;
   border-radius: 12px;
   height: 180px;
-width: 350px;
+  width: 350px;
 }
+
 .MenuItem-content {
   margin-left: 24px;
 }
+
 .MenuItem-name {
   padding: 5px;
   font-weight: bold;
- justify-content: space-between;
+  justify-content: space-between;
   display: flex;
   color: darkblue;
 }
@@ -159,30 +153,30 @@ width: 350px;
 .MenuItem-manipulate {
   font-size: medium;
   display: flex;
-align-items: center;
+  align-items: center;
   justify-content: space-around;
 }
-.MenuItem-description{
+
+.MenuItem-description {
   font-size: 14px;
-width: 180px;
+  width: 180px;
   display: flex;
   color: #6b5a5a;
-line-height: 1.2;
-font-style: oblique;
-font-family:cursive ;
-
-
+  line-height: 1.2;
+  font-style: oblique;
+  font-family: cursive;
 }
-.EditButton{
+
+.EditButton {
   background-color: tomato;
-
 }
-.DeleteButton{
+
+.DeleteButton {
   background-color: #7b497b;
 }
-.scroll{
+
+.scroll {
   padding: 5px;
   background-color: #ccc;
   font-weight: bold;
-
 }

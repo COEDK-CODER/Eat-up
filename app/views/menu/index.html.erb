@@ -1,30 +1,22 @@
 <article class="MenuPage" >
   <h1 class="MenuPageTitle">MENU</h1>
   <div class="MenuContent">
-    <% if @current_user.role=="owner"%>
-      <div>
-        <%= render partial: "dash-section"%>
-        <%= image_tag("https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80", class: "MenuContent-image") %>
-      </div>
-    <%else%>
     <div>
+      <% if @admin%>
+        <%= render partial: "dash-section"%>
+      <% end %>
       <%= image_tag("https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80", class: "MenuContent-image") %>
-
-  </div>
-    <% end%>
+    </div>
     <div>
       <marquee class= "scroll" behavior="alternate">Welcome EatUp cafe,Please take a moment to tell us what you think about our application or anything else that comes to mind. <br>
-      We welcome all of your comments and suggestions that will help us improve a lot based on your <%= link_to "Feedback","
-https://docs.google.com/forms/d/e/1FAIpQLScQRbsSbq_r0oZFnDwKg_db5RwTGsfqz956tjCYtaOKRLbuJw/viewform?usp=pp_url&entry.831979437=#{@current_user.id}&entry.1409699261=#{@current_user.first_name}&entry.1247884364=#{@current_user.phone_number}
- "%>
-
-.
+        We welcome all of your comments and suggestions that will help us improve a lot based on your <%= link_to "Feedback","
+        https://docs.google.com/forms/d/e/1FAIpQLScQRbsSbq_r0oZFnDwKg_db5RwTGsfqz956tjCYtaOKRLbuJw/viewform?usp=pp_url&entry.831979437=#{@current_user.id}&entry.1409699261=#{@current_user.first_name}&entry.1247884364=#{@current_user.phone_number}
+        "%>
       <br> And...please visit us often!</marquee>
       <% @menu.each do |menu| %>
         <div class="Menu">
           <%= render partial: "menu-section" ,locals:{id: menu.id,  section_title: menu.menu_name , menu_items: MenuItem.menu_items(menu.id) }%>
         </div>
-
       <% end %>
       <%= button_to "Go to Cart","/cart_items",method: "get",class: "CartButton cart_view"%>
     </div>

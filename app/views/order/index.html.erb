@@ -1,8 +1,7 @@
 <h1 class="MenuPageTitle">My Orders</h1>
-
 <table class="OrderCart">
-<% if flash[:notice] %>
-    <p class="Flash-notice message"> <%= flash[:notice]%></p>
+	<% if flash[:notice] %>
+  	<p class="Flash-notice message"> <%= flash[:notice]%></p>
   <% end %>
 	<thead>
 		<tr>
@@ -27,7 +26,7 @@
 				</td>
 				<td>
 					<%= link_to(order_path(order.id),class: 'Menu-button TrashIcon') do %>
-    				<%= content_tag('i', nil, class: 'fa fa-external-link') %> Order Details
+    				<%= content_tag('i', nil, class: 'fa fa-external-link') %> Order
     			<% end %>
 				</td>
 			</tr>

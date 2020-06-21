@@ -1,27 +1,27 @@
 <h1 class="MenuPageTitle">Order Details</h1>
-
-
-
 <table class="OrderCart">
-<tr>
-			<th>Name</th>
-			<td><%= @current_user.first_name%></td>
-			<th>Total </th>
-			<td><%= @order.amount%></td>
-		</tr>
-		<tr>
-			<th>Order Id</th>
-			<td>EATORD<%= @order.id%></td>
-			<th>Order Type</th>
-			<td>Home Delivered</td>
-		</tr>
-		<tr>
-			<th> Ordered at</th>
-			<td> <%= @order.created_at.to_formatted_s(:short)%></td>
-			<th> Delivered at</th>
-			<td><%= @order.created_at.to_formatted_s(:short)%></td>
-		</tr>
-
+	<tr>
+		<th>Name</th>
+		<td><%= @current_user.first_name%></td>
+		<th>Total </th>
+		<td><%= @order.amount%></td>
+	</tr>
+	<tr>
+		<th>Order Id</th>
+		<td>EATORD<%= @order.id%></td>
+		<th>Order Type</th>
+		<td>Home Delivered</td>
+	</tr>
+	<tr>
+		<th> Ordered at</th>
+		<td> <%= @order.created_at.to_formatted_s(:short)%></td>
+		<th> Delivered at</th>
+		<% if @order.order_status.eql?("Delivered")%>
+			<td><%= @order.updated_at.to_formatted_s(:short)%></td>
+		<% else%>
+			<td>-------------</td>
+		<% end %>
+	</tr>
 </table>
 <table class="OrderCart">
 	<thead>

@@ -19,7 +19,7 @@ class OrderController < ApplicationController
   end
 
   def update
-    ensure_owner_logged_in
+    ensure_admin_logged_in
     order = Order.find(params[:id])
     if params[:state]
       order.order_status = "Delivered"
@@ -36,7 +36,7 @@ class OrderController < ApplicationController
   end
 
   def display
-    ensure_owner_logged_in
+    ensure_admin_logged_in
     @orders = Order.all
     @id = params[:id]
 

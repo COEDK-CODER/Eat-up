@@ -2,7 +2,7 @@
   font-family: sans-serif;
   margin-top: 35px;
   padding: 20px;
-background-color: aliceblue;
+  background-color: aliceblue;
   border-radius: 10px;
 }
 
@@ -49,7 +49,6 @@ background-color: aliceblue;
   padding: 8px 15px;
   border-radius: 4px;
   border: none;
-
 }
 
 .Gender-options {
@@ -66,7 +65,7 @@ background-color: aliceblue;
 .Details-label {
   display: inline-block;
   width: 180px;
-  color:darkslategray;
+  color: darkslategray;
   font-weight: bold;
   font-size: 20px;
 }
@@ -109,10 +108,12 @@ background-color: aliceblue;
   padding: 10px 20px;
   color: white;
 }
-.message{
+
+.message {
   margin-left: 600px;
   background-color: green;
 }
+
 tr.break td {
   height: 10px;
   border: 0px;

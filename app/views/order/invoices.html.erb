@@ -11,42 +11,39 @@
         <input type="button", value="Get", Onclick="this.form.submit()" >
       </section>
     <% end%>
-     <%if @orders %>
+    <%if @orders %>
       <% if !(Order.valid_date(@from_date,@to_date))%>
-      <p class=" Invoice-date DashBoard-section-title" >Amount Collected<span><%= Order.amount(@orders)%><span></p>
-        <p class=" Invoice-date DashBoard-section-title" >Orders Received<span><%= Order.count%><span></p>
-    <section class="ManageMenu-section">
-      <table class="OrderCart">
-	      <thead>
-          <tr>
-            <th>Order-Id</th>
-            <th>Date</th>
-            <th>Customer Name</th>
-            <th>Amount</th>
-            <th>Action</th>
-          </tr>
-	      </thead>
-	      <tbody>
-
-
-              <% @orders.order(:id).each_with_index do |order,i|%>
+        <p class=" Invoice-date DashBoard-section-title" >Amount Collected<span><%= Order.amount(@orders)%><span></p>
+        <p class=" Invoice-date DashBoard-section-title" >Orders Received<span><%= @orders.count%><span></p>
+        <section class="ManageMenu-section">
+          <table class="OrderCart">
+	          <thead>
               <tr>
-    	          <td>ORD-<%= order.id%></td>
-  	            <td><%= order.order_date%></td>
-                <td><%= order.user.first_name%></td>
-            	  <td><%= order.amount%></td>
-    	          <td>
-                  <%= link_to(order_path(order.id),class: 'Menu-button TrashIcon') do %>
-                    <%= content_tag('i', nil, class: 'fa fa-external-link') %> Order Details
-                  <% end %>
-                </td>
+                <th>Order-Id</th>
+                <th>Date</th>
+                <th>Customer Name</th>
+                <th>Amount</th>
+                <th>Action</th>
               </tr>
-            <% end %>
-
-    	</tbody>
-    </table>
-  </section>
-   <% end %>
-        <% end %>
-</div>
+	          </thead>
+	          <tbody>
+              <% @orders.order(:id).each_with_index do |order,i|%>
+                <tr>
+    	            <td>ORD-<%= order.id%></td>
+  	              <td><%= order.order_date%></td>
+                  <td><%= order.user.first_name%></td>
+          	      <td><%= order.amount%></td>
+  	              <td>
+                    <%= link_to(order_path(order.id),class: 'Menu-button TrashIcon') do %>
+                      <%= content_tag('i', nil, class: 'fa fa-external-link') %> Order Details
+                    <% end %>
+                  </td>
+                </tr>
+              <% end %>
+        	  </tbody>
+          </table>
+        </section>
+      <% end %>
+    <% end %>
+  </div>
 </div>

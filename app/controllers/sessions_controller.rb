@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   skip_before_action :ensure_logged_in
+  skip_before_action :role
 
   def new
   end
