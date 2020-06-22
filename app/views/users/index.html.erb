@@ -12,36 +12,35 @@
 		<% if @user%>
  			<%=form_with(url: "/users/#{@user.id}?dash=true", method: "put")do%>
   			<table class="OrderCart">
-
-						<tr>
-    					<th>User Id</th>
-     					<td><%= @user.id%></td>
-							<th>User Name</th>
-			 				<td><%= @user.first_name%></td>
-       			</tr>
-       			<tr>
-      				<th>Email</th>
-       				<td><%= @user.email%></td>
-							<th>Phone Number</th>
-       				<td><%= @user.phone_number%></td>
-       			</tr>
-						<tr>
-							<th>Role</th>
-       				<td>
-			 					<select name="role">
-									<option value="<%= @user.role%>"><%= @user.role%></option>
-									<% roles=["owner","customer","clerk"]%>
-									<% roles.each do |role|%>
-										<% if !(role.eql?(@user.role))%>
-                			<option value="<%= role%>"><%= role%></option>
-										<% end %>
-									<%end %>
-            		</select>
-							</td>
-							<th>Action</th>
-							<td> <%= submit_tag "Update",data: {disable_with: "updating.."}%></td>
-						</tr>
-						  <tr class="break"><td colspan="4">	<p class="DashBoard-section-title">Orders Till Now</p></td></tr>
+					<tr>
+    				<th>User Id</th>
+     				<td><%= @user.id%></td>
+						<th>User Name</th>
+			 			<td><%= @user.first_name%></td>
+       		</tr>
+       		<tr>
+      			<th>Email</th>
+       			<td><%= @user.email%></td>
+						<th>Phone Number</th>
+       			<td><%= @user.phone_number%></td>
+       		</tr>
+					<tr>
+						<th>Role</th>
+       			<td>
+			 				<select name="role">
+								<option value="<%= @user.role%>"><%= @user.role%></option>
+								<% roles=["owner","customer","clerk"]%>
+								<% roles.each do |role|%>
+									<% if !(role.eql?(@user.role))%>
+                		<option value="<%= role%>"><%= role%></option>
+									<% end %>
+								<%end %>
+            	</select>
+						</td>
+						<th>Action</th>
+						<td> <%= submit_tag "Update",data: {disable_with: "updating.."}%></td>
+					</tr>
+					<tr class="break"><td colspan="4">	<p class="DashBoard-section-title">Orders Till Now</p></td></tr>
 					<tr>
 						<th>Order Id</th>
 						<th>Date</th>
@@ -50,20 +49,18 @@
 						<th>Action</th>
 					</tr>
 					<% @orders.each do |order|%>
-					<tr>
-					<td> ORD-<%= order.id%></td>
-		<td> <%= order.order_date%> </td>
-		<td><%= order.amount%></td>
-					<td><%= order.order_status%></td>
-					<td> <%= link_to(order_path(order.id),class: 'Menu-button TrashIcon') do %>
-                    <%= content_tag('i', nil, class: 'fa fa-external-link') %> Order Details
-                  <% end %></td>
-					</tr>
+						<tr>
+							<td> ORD-<%= order.id%></td>
+							<td> <%= order.order_date%> </td>
+							<td><%= order.amount%></td>
+							<td><%= order.order_status%></td>
+							<td><%= link_to(order_path(order.id),class: 'Menu-button TrashIcon') do %>
+              	  	<%= content_tag('i', nil, class: 'fa fa-external-link') %> Order Details
+                	<% end %></td>
+						</tr>
 					<% end %>
-
 				</table>
     	<%end%>
-
 		<%else%>
 			<table class="OrderCart">
 				<thead>
