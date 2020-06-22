@@ -10,10 +10,10 @@
         <label class="Details-label">Menu Name :</label>
         <%=text_field_tag 'menu_name', "#{@menu.menu_name}",  minlength: 3, autofocus: true%>
       </li>
-      <%= submit_tag "Update" , class: "MenuBar-button ",data: {disable_with: "updating.."}%>
       <%= link_to(menu_path(id: @menu.id),class: 'AddButton EditButton',method: :delete) do %>
         <%= content_tag('i', nil, class: 'fa fa-trash') %>Remove
       <% end %>
+      <%= submit_tag "Update" , class: "AddButton UpdateButton",data: {disable_with: "updating.."}%>
     <% end %>
   </ul>
 </section>

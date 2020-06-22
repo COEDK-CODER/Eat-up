@@ -169,10 +169,19 @@
 
 .EditButton {
   background-color: tomato;
+  text-decoration: none;
 }
 
 .DeleteButton {
   background-color: #7b497b;
+  text-decoration: none;
+}
+.UpdateButton {
+  background-color: #7b497b;
+  text-decoration: none;
+  height: 40px;
+  margin-top: 10px;
+  margin-left: 190px;
 }
 
 .scroll {

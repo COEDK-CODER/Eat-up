@@ -6,8 +6,8 @@
 		<%= form_with(url: "/all_orders", method: "get") do %>
 			<section class="Invoice-date">
 				<p class="DashBoard-section-title">Order Id</p>
-    		<%= number_field_tag 'id',nil,min:1%>
-    		<input type="button", value="Get", Onclick="this.form.submit()" >
+    		<%= number_field_tag 'id',nil,min:1,class: "Date"%>
+    		<input type="button" class= "AddButton" value="Search", Onclick="this.form.submit()" >
 			</section>
     <% end%>
 		<table class="OrderCart">

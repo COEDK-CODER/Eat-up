@@ -5,8 +5,8 @@
 		<%= form_with(url: "/users", method: "get") do %>
 			<section class="Invoice-date">
 				<p class="DashBoard-section-title">Email</p>
-      	<%= email_field_tag 'email'%>
-      	<input type="button", value="Get", Onclick="this.form.submit()" >
+      	<%= email_field_tag 'email','',class: "Date"%>
+      	<input type="button" class="AddButton" value="Search", Onclick="this.form.submit()" >
 			</section>
 		<% end%>
 		<% if @user%>

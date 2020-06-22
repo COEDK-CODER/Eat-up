@@ -33,7 +33,7 @@
         <label class="Details-label">Price :</label>
         <%= number_field_tag :price, "#{@menu_item.price}",min: 1%>
       </li>
-      <%= submit_tag "Update" , class: "MenuBar-button ",data: {disable_with: "updating.."}%>
+      <%= submit_tag "Update" , class: "AddButton UpdateButton ",data: {disable_with: "updating.."}%>
     <% end %>
   </ul>
 </section>

@@ -1,6 +1,6 @@
 <h1 class="MenuPageTitle">My account</h1>
 <section class="Account">
-  <ul>
+  <ul style="margin-bottom:20px;">
     <li class="Details-item">
       <label class="Details-label">Account Id :</label>
       <input class="Details-input" value="EATUP<%= @user.id %>" disabled>
@@ -18,10 +18,8 @@
       <label class="Details-label">Mail ID :</label>
       <input class="Details-input" value="<%= @user.email %>" disabled>
     </li>
-    <li class="Details-item">
-      <%= link_to(edit_user_path(id: @user.id),class: 'MenuBar-button',  :onclick => 'alert("Note: Not neccessary to update the password")') do %>
-        <%= content_tag('i', nil, class: 'fa fa-pencil') %> Edit
-      <% end %>
-    </li>
   </ul>
+  <%= link_to(edit_user_path(id: @user.id),class: "AddButton UpdateButton",  :onclick => 'alert("Note: Not neccessary to update the password")') do %>
+    <%= content_tag('i', nil, class: 'fa fa-pencil') %> Edit
+  <% end %>
 </section>
